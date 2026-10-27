@@ -2,6 +2,14 @@
    Plurielles — styles du site
    ============================================================= */
 
+/* ---------- Réglages du contour (menu + logo) ----------
+   Texte et logo en blanc sur toutes les pages, avec un léger contour foncé
+   pour rester lisibles sur photo comme sur fond clair.
+   Augmenter l'opacité (0.55 → 0.8) pour un contour plus marqué. */
+:root {
+  --flo-outline: rgba(0, 0, 0, 0.55);
+}
+
 /* ---------- En-tête commun ---------- */
 
 .flo-hero {
@@ -73,10 +81,14 @@
 .flo-right { justify-content: flex-end;   gap: 17px; }
 
 .flo-nav a {
-  color: var(--flo-text, #fff);
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  text-shadow:
+    -1px 0 0 var(--flo-outline),
+     1px 0 0 var(--flo-outline),
+     0 -1px 0 var(--flo-outline),
+     0  1px 0 var(--flo-outline);
   transition: opacity 0.2s ease;
 }
 .flo-nav a:hover { opacity: 0.6; }
@@ -99,6 +111,12 @@
   display: block;
   width: 100%;
   height: auto;
+  /* contour qui suit la forme du logo (PNG transparent) */
+  filter:
+    drop-shadow(1px 0 0 var(--flo-outline))
+    drop-shadow(-1px 0 0 var(--flo-outline))
+    drop-shadow(0 1px 0 var(--flo-outline))
+    drop-shadow(0 -1px 0 var(--flo-outline));
 }
 
 /* ---------- Titre des bannières ---------- */
@@ -183,7 +201,7 @@ body.flo-has-content { background-color: #eeeeec; }
 .flo-split-photo {
   position: sticky;
   top: 0;
-  height: 80vh;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -290,7 +308,12 @@ body.flo-has-content { background-color: #eeeeec; }
   z-index: 60;
   background: none;
   border: 0;
-  color: var(--flo-text, #fff);
+  color: #fff;
+  text-shadow:
+    -1px 0 0 var(--flo-outline),
+     1px 0 0 var(--flo-outline),
+     0 -1px 0 var(--flo-outline),
+     0  1px 0 var(--flo-outline);
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.08em;
