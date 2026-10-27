@@ -137,10 +137,30 @@
 
     var logo = el('a', 'flo-logo');
     logo.href = '/';
-    var img = el('img');
-    img.src = (page && page.logoImage) || config.logo.image;
-    img.alt = 'Plurielles';
-    logo.appendChild(img);
+    var isLight = hero.classList.contains('flo-bar');
+
+    // Papillon (couleurs d'origine, jamais assombri)
+    if (config.logo.symbol) {
+      var sym = el('img', 'flo-logo-symbol');
+      sym.src = config.logo.symbol;
+      sym.alt = '';
+      logo.appendChild(sym);
+    }
+
+    // Typo « Plurielles », posée par-dessus le papillon
+    var typo = el('img', config.logo.symbol ? 'flo-logo-typo' : null);
+    if (page && page.logoImage) {
+      typo.src = page.logoImage;
+    } else if (isLight && config.logo.imageDark) {
+      typo.src = config.logo.imageDark;           // version foncée fournie
+    } else {
+      typo.src = config.logo.image;
+      if (isLight) logo.classList.add('flo-logo-dark'); // sinon : assombrie en CSS
+    }
+    typo.alt = 'Plurielles';
+    if (config.logo.typoScale) typo.style.width = (config.logo.typoScale * 100) + '%';
+    if (config.logo.typoOffset) typo.style.marginTop = config.logo.typoOffset;
+    logo.appendChild(typo);
 
     nav.appendChild(buildMenu(config.menu.left, 'flo-left'));
     nav.appendChild(logo);
