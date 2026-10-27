@@ -36,7 +36,7 @@ Plurielles.config({
   // Texture de fond des pages (toutes sauf l'accueil)
   texture: {
     image: 'https://studioplurielles.fr/data/files/img_4862.webp',
-    opacity: 0.20,
+    opacity: 0.10,
     baseColor: '#eeeeec'   // couleur sous la texture
   },
 
