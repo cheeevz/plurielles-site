@@ -205,6 +205,81 @@ body.flo-has-content { background-color: #eeeeec; }
   letter-spacing: 0.04em;
 }
 
+/* ---------- Page Contact ---------- */
+
+.flo-contact {
+  display: grid;
+  grid-template-columns: 46% 1fr;
+  gap: 6vw;
+  align-items: start;
+  padding: 32px 7vw 96px 0;
+}
+.flo-contact-info {
+  border-top: 1px solid #1f1f1f;
+  border-bottom: 1px solid #1f1f1f;
+  padding: 16px 16px 20px 7vw;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #1f1f1f;
+}
+.flo-contact-info p { margin: 0 0 1.2em; }
+.flo-contact-info p:last-child { margin-bottom: 0; }
+.flo-contact-text { text-transform: uppercase; letter-spacing: 0.03em; }
+.flo-contact-link { color: inherit; text-decoration: none; }
+.flo-contact-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.flo-contact-img {
+  display: block;
+  width: 88%;
+  max-width: 560px;
+  margin: 48px 0 0 4vw;
+}
+
+/* Formulaire Site Creator déplacé dans la colonne de droite */
+.flo-contact-form {
+  background: #fff;
+  padding: 24px 32px 32px;
+  max-width: 420px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: #1f1f1f;
+}
+.flo-contact-form:empty { display: none; }
+.flo-contact-form label {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+}
+.flo-contact-form input:not([type=radio]):not([type=checkbox]):not([type=submit]),
+.flo-contact-form textarea,
+.flo-contact-form select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  padding: 10px 12px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+  box-shadow: none !important;
+}
+.flo-contact-form button,
+.flo-contact-form input[type=submit] {
+  width: 100%;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #8c9a6c !important;
+  color: #fff !important;
+  padding: 12px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+.flo-contact-form button:hover,
+.flo-contact-form input[type=submit]:hover { opacity: 0.85; }
+.flo-contact-form input[type=radio] { accent-color: #6f7d52; }
+
 /* ---------- Bouton menu mobile ---------- */
 
 .flo-burger {
@@ -267,4 +342,9 @@ body.flo-has-content { background-color: #eeeeec; }
   .flo-split { grid-template-columns: 1fr; gap: 32px; padding-top: 0; }
   .flo-split-photo { position: relative; height: 60vh; }
   .flo-split-text { padding: 0 16px 64px; }
+
+  .flo-contact { grid-template-columns: 1fr; gap: 40px; padding: 16px 0 64px; }
+  .flo-contact-info { padding: 16px; }
+  .flo-contact-img { width: calc(100% - 32px); margin: 32px 16px 0; }
+  .flo-contact-form { margin: 0 16px; max-width: none; padding: 20px; }
 }
