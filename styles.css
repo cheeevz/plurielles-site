@@ -88,7 +88,7 @@
     -1px 0 0 var(--flo-outline),
      1px 0 0 var(--flo-outline),
      0 -1px 0 var(--flo-outline),
-     0  1px 0 var(--flo-outline);
+     0  1px 0 var(--flo-outline) !important;
   transition: opacity 0.2s ease;
 }
 .flo-nav a:hover { opacity: 0.6; }
