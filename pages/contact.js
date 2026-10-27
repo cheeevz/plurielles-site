@@ -29,5 +29,5 @@ Plurielles.page({
   // ----- Colonne de droite -----
   // Sélecteur CSS du bloc formulaire créé dans Site Creator (à récupérer avec l'inspecteur).
   // Tant qu'il est vide ou introuvable, le formulaire reste à sa place d'origine.
-  formSelector: ''
+    formSelector: 'form.ContactForm'
 });
