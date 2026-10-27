@@ -4,7 +4,7 @@
 Plurielles.page({
 
   // ----- Bannière -----
-  image: 'https://COLLER-ICI-URL-DE-LA-PHOTO-MARIAGE.jpg',
+  image: 'https://studioplurielles.fr/data/files/pluriellesmariagephotobanniere.png',
   title: 'Mariage',
   position: '50%',    // cadrage vertical   : 0% = haut, 100% = bas
   positionX: '50%',   // cadrage horizontal : 0% = gauche, 100% = droite
