@@ -238,7 +238,8 @@
     var form = page.formSelector ? document.querySelector(page.formSelector) : null;
     if (form && !inEditor) {
       right.appendChild(form);
-    } else {
+    } else if (page.formSelector) {
+      // Un formulaire est attendu mais introuvable : on ne masque rien pour ne pas le perdre
       formMissing = true;
       if (!inEditor) console.warn('[Plurielles] formulaire introuvable :', page.formSelector);
     }
