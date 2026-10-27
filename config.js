@@ -33,9 +33,19 @@ Plurielles.config({
     textColor: '#ffffff'
   },
 
+  // Texture de fond des pages (toutes sauf l'accueil)
+  texture: {
+    image: 'https://studioplurielles.fr/data/files/img_4862.webp',
+    opacity: 0.46,
+    baseColor: '#eeeeec'   // couleur sous la texture
+  },
+
   // En-tête d'origine du thème Site Creator, masqué partout
   themeHeader: 'header',
 
+  // Bloc qui contient tout le contenu Site Creator de la page (titre, blocs, pied de page),
+  // masqué sur les pages dont le contenu vient du repo.
+  // À récupérer avec l'inspecteur. Vide = rien n'est masqué.
   siteContent: '#website'
 
 });
