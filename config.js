@@ -36,4 +36,6 @@ Plurielles.config({
   // En-tête d'origine du thème Site Creator, masqué partout
   themeHeader: 'header'
 
+  siteContent: '#website'
+
 });
