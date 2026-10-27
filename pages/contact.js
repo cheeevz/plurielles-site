@@ -23,7 +23,7 @@ Plurielles.page({
   ],
 
   // Image sous le bloc (l'enveloppe)
-  image: 'https://COLLER-ICI-URL-DE-L-IMAGE-ENVELOPPE.png',
+  image: 'https://studioplurielles.fr/data/files/pluriellelettrelogo.png',
   imageAlt: 'Enveloppe Plurielles',
 
   // ----- Colonne de droite -----
