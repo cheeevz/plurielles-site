@@ -7,7 +7,7 @@
    pour rester lisibles sur photo comme sur fond clair.
    Augmenter l'opacité (0.55 → 0.8) pour un contour plus marqué. */
 :root {
-  --flo-outline: rgba(0, 0, 0, 0.8);
+  --flo-outline: rgba(0, 0, 0, 0.55);
 }
 
 /* ---------- En-tête commun ---------- */
