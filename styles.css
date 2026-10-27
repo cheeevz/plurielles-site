@@ -253,10 +253,10 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-text { text-transform: uppercase; letter-spacing: 0.03em; }
 .flo-contact-link { color: inherit; text-decoration: none; }
 .flo-contact-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+/* L'image s'arrête au bout des traits du bloc de texte */
 .flo-contact-img {
   display: block;
-  width: 90%;
-  max-width: 620px;
+  width: calc(100% - 3vw);
   margin: 40px 0 0 3vw;
 }
 
