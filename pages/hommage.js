@@ -4,7 +4,7 @@
 Plurielles.page({
 
   // ----- Bannière -----
-  image: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/photos/pluriellesdeuilchamps16.png',
+  image: 'https://studioplurielles.fr/data/files/pluriellesdeuilchamps16.png',
   title: 'Hommage',
   position: '35%',    // cadrage vertical   : 0% = haut, 100% = bas
   positionX: '50%',   // cadrage horizontal : 0% = gauche, 100% = droite
