@@ -2,13 +2,10 @@
    Plurielles — styles du site
    ============================================================= */
 
-/* ---------- Réglages du contour (menu + logo) ----------
-   Texte et logo en blanc sur toutes les pages, avec un léger contour foncé
-   pour rester lisibles sur photo comme sur fond clair.
-   Augmenter l'opacité (0.55 → 0.8) pour un contour plus marqué. */
-:root {
-  --flo-outline: rgba(0, 0, 0, 0.55);
-}
+/* Règle des couleurs du menu et du logo :
+   - blanc sur les photos (accueil, bannières)
+   - foncé sur les pages à fond clair (classe .flo-bar)
+   La couleur foncée se règle dans config.js > bar.textColor */
 
 /* ---------- En-tête commun ---------- */
 
@@ -81,14 +78,10 @@
 .flo-right { justify-content: flex-end;   gap: 17px; }
 
 .flo-nav a {
-  color: #fff;
+  color: var(--flo-text, #fff);
   text-decoration: none;
   text-transform: uppercase;
-  text-shadow:
-    -1px 0 0 var(--flo-outline),
-     1px 0 0 var(--flo-outline),
-     0 -1px 0 var(--flo-outline),
-     0  1px 0 var(--flo-outline) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.2s ease;
 }
 .flo-nav a:hover { opacity: 0.6; }
@@ -111,12 +104,21 @@
   display: block;
   width: 100%;
   height: auto;
-  /* contour qui suit la forme du logo (PNG transparent) */
-  filter:
-    drop-shadow(1px 0 0 var(--flo-outline))
-    drop-shadow(-1px 0 0 var(--flo-outline))
-    drop-shadow(0 1px 0 var(--flo-outline))
-    drop-shadow(0 -1px 0 var(--flo-outline));
+}
+
+/* Pages à fond clair : texte sans ombre, logo assombri
+   (sauf si une version foncée du logo est fournie dans config.js) */
+.flo-bar .flo-nav a,
+.flo-bar .flo-burger { text-shadow: none; }
+.flo-logo-dark img:not(.flo-logo-symbol) { filter: brightness(0.25); }
+
+/* Logo en deux couches : papillon + typo centrée par-dessus */
+.flo-logo { position: relative; }
+.flo-logo-typo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* ---------- Titre des bannières ---------- */
@@ -230,7 +232,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 .flo-contact {
   display: grid;
-  grid-template-columns: 46% 1fr;
+  grid-template-columns: 42% 1fr;
   gap: 6vw;
   align-items: start;
   padding: 32px 7vw 96px 0;
@@ -245,6 +247,8 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   color: #1f1f1f;
 }
 .flo-contact-info p { margin: 0 0 1.2em; }
+/* Largeur max des lignes de texte (les traits restent sur toute la colonne) */
+.flo-contact-info > * { max-width: 480px; }
 .flo-contact-info p:last-child { margin-bottom: 0; }
 .flo-contact-text { text-transform: uppercase; letter-spacing: 0.03em; }
 .flo-contact-link { color: inherit; text-decoration: none; }
@@ -311,12 +315,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   z-index: 60;
   background: none;
   border: 0;
-  color: #fff;
-  text-shadow:
-    -1px 0 0 var(--flo-outline),
-     1px 0 0 var(--flo-outline),
-     0 -1px 0 var(--flo-outline),
-     0  1px 0 var(--flo-outline);
+  color: var(--flo-text, #fff);
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.08em;
