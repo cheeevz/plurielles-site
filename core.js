@@ -283,17 +283,18 @@
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 
-      // Masquer tout le reste de la page Site Creator (titre, blocs par défaut, pied de page)
+      // Masquer le contenu propre à Site Creator (titre, blocs par défaut, pied de page)
       // sur les pages dont le contenu vient d'ici.
-      //  - jamais dans l'éditeur Site Creator (sinon impossible d'y travailler)
+      // On ne masque QUE le(s) bloc(s) indiqué(s) dans config.js > siteContent,
+      // pour ne jamais toucher à la barre latérale de l'éditeur.
       //  - désactivable par page avec « keepSiteCreator: true » (ex. la boutique)
-      // (si le formulaire Contact n'a pas été trouvé, on ne masque rien pour ne pas le perdre)
-      if (content && !page.keepSiteCreator && !inEditor && !formMissing) {
-        var hideAll = el('style');
-        hideAll.textContent =
-          'body > *:not(.flo-hero):not(.flo-content):not(.flo-split):not(.flo-contact)' +
-          ':not(script):not(style):not(link):not(noscript){display:none !important;}';
-        document.head.appendChild(hideAll);
+      //  - si le formulaire Contact n'a pas été trouvé, on ne masque rien pour ne pas le perdre
+      var editorOpen = !!document.getElementById('koLeftMenu'); // barre latérale de l'éditeur Site Creator
+      if ((content || (page && page.fullscreen)) && config.siteContent &&
+          !page.keepSiteCreator && !formMissing && !editorOpen) {
+        var hideSite = el('style');
+        hideSite.textContent = config.siteContent + '{display:none !important;}';
+        document.head.appendChild(hideSite);
       }
     });
 })();
