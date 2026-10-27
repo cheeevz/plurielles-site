@@ -277,6 +277,21 @@
         document.head.appendChild(hide);
       }
 
+      // Texture de fond sur toutes les pages sauf l'accueil
+      if (!isHome && config.texture && config.texture.image) {
+        var t = config.texture;
+        var veil = 1 - (t.opacity == null ? 1 : t.opacity);
+        var base = t.baseColor || '#eeeeec';
+        var rgb = base.replace('#', '').match(/.{2}/g).map(function (h) { return parseInt(h, 16); }).join(',');
+        var tex = el('style');
+        tex.textContent =
+          'body.flo-textured{background:' +
+          'linear-gradient(rgba(' + rgb + ',' + veil + '),rgba(' + rgb + ',' + veil + ')),' +
+          "url('" + t.image + "') center / cover fixed, " + base + ' !important;}';
+        document.head.appendChild(tex);
+        document.body.classList.add('flo-textured');
+      }
+
       var hero = buildHeader();
       document.body.insertBefore(hero, document.body.firstChild);
 
