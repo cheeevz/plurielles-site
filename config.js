@@ -4,8 +4,15 @@
 Plurielles.config({
 
   logo: {
-    // Logo papillon + typo blanche
+    // Papillon seul (couleurs d'origine)
+    symbol: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/photos/pluriellesfleurs.png',
+    // Typo « Plurielles » blanche, posée au centre du papillon
     image: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/pluriellesblanctypo.png',
+    typoScale: 1,           // taille de la typo par rapport au papillon (1 = même largeur)
+    typoOffset: '0px',      // décalage vertical de la typo sur le papillon (négatif = monte)
+    // Version à typo foncée pour les pages à fond clair.
+    // Laisser vide : le logo blanc est alors assombri automatiquement.
+    imageDark: '',
     width: '190px',         // largeur sur ordinateur
     widthMobile: '130px',   // largeur sur mobile
     offset: '-5px'          // décalage vertical pour aligner « Plurielles » avec le menu
@@ -30,13 +37,13 @@ Plurielles.config({
   // Pages sans photo (pas de fichier dans pages/) : bandeau de couleur
   bar: {
     background: '#c8c9cb',
-    textColor: '#ffffff'
+    textColor: '#1f1f1f'   // menu foncé sur les pages à fond clair
   },
 
   // Texture de fond des pages (toutes sauf l'accueil)
   texture: {
     image: 'https://studioplurielles.fr/data/files/img_4862.webp',
-    opacity: 0.25,
+    opacity: 0.46,
     baseColor: '#ffffff'   // couleur sous la texture
   },
 
