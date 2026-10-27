@@ -15,7 +15,7 @@ Plurielles.page({
   // logoImage: 'https://...',
 
   // ----- Photo de gauche -----
-  image: 'https://COLLER-ICI-URL-DE-LA-PHOTO-A-PROPOS.jpg',
+  image: 'https://studioplurielles.fr/data/files/pluriellesunionretouchesok22.png',
   position: '50%',    // cadrage vertical   : 0% = haut, 100% = bas
   positionX: '50%',   // cadrage horizontal : 0% = gauche, 100% = droite
 
