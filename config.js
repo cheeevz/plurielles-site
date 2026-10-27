@@ -4,9 +4,9 @@
 Plurielles.config({
 
   logo: {
-    // Papillon seul (couleurs d'origine)
-    symbol: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/photos/pluriellesfleurs.png',
-    // Typo « Plurielles » blanche, posée au centre du papillon
+    // Logo fleur (couleurs d'origine)
+    symbol: '',
+    // Typo « Plurielles » blanche ou noire,
     image: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/pluriellesblanctypo.png',
     typoScale: 1,           // taille de la typo par rapport au papillon (1 = même largeur)
     typoOffset: '0px',      // décalage vertical de la typo sur le papillon (négatif = monte)
