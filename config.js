@@ -13,8 +13,8 @@ Plurielles.config({
     // Version à typo foncée pour les pages à fond clair.
     // Laisser vide : le logo blanc est alors assombri automatiquement.
     imageDark: '',
-    width: '190px',         // largeur sur ordinateur
-    widthMobile: '130px',   // largeur sur mobile
+    width: '210px',         // largeur sur ordinateur
+    widthMobile: '150px',   // largeur sur mobile
     offset: '-5px'          // décalage vertical pour aligner « Plurielles » avec le menu
                             // (négatif = monte, positif = descend)
   },
