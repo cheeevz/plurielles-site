@@ -106,7 +106,7 @@
       hero.classList.add('flo-full');
       hero.style.backgroundImage = "url('" + page.image + "')";
       hero.style.backgroundPosition = 'center ' + (page.position || '50%');
-    } else if (page && page.image && page.layout !== 'split') {
+    } else if (page && page.image && !page.layout) {
       // Page avec bannière photo
       hero.classList.add('flo-banner');
       var bg = el('div', 'flo-bg');
@@ -179,8 +179,56 @@
     return wrap;
   }
 
+  // Mise en page Contact : infos + image à gauche, formulaire Site Creator à droite
+  var inEditor = window.self !== window.top;
+  var formMissing = false;
+
+  function buildContact() {
+    document.body.classList.add('flo-has-content');
+    var wrap = el('section', 'flo-contact');
+
+    var left = el('div', 'flo-contact-left');
+    var info = el('div', 'flo-contact-info');
+    if (page.title) info.appendChild(el('h2', 'flo-section-title', page.title));
+    (page.text || []).forEach(function (t) { info.appendChild(el('p', 'flo-contact-text', t)); });
+    if (page.email) {
+      var mail = el('a', 'flo-contact-link', page.email);
+      mail.href = 'mailto:' + page.email;
+      var pm = el('p'); pm.appendChild(mail); info.appendChild(pm);
+    }
+    (page.links || []).forEach(function (l) {
+      var a = el('a', 'flo-contact-link', l.label);
+      a.href = l.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      var pl = el('p'); pl.appendChild(a); info.appendChild(pl);
+    });
+    left.appendChild(info);
+
+    if (page.image) {
+      var img = el('img', 'flo-contact-img');
+      img.src = page.image;
+      img.alt = page.imageAlt || '';
+      left.appendChild(img);
+    }
+    wrap.appendChild(left);
+
+    // Colonne de droite : on y déplace le formulaire de Site Creator
+    var right = el('div', 'flo-contact-form');
+    var form = page.formSelector ? document.querySelector(page.formSelector) : null;
+    if (form && !inEditor) {
+      right.appendChild(form);
+    } else {
+      formMissing = true;
+      if (!inEditor) console.warn('[Plurielles] formulaire introuvable :', page.formSelector);
+    }
+    wrap.appendChild(right);
+    return wrap;
+  }
+
   function buildContent() {
     if (page && page.layout === 'split') return buildSplit();
+    if (page && page.layout === 'contact') return buildContact();
     if (!page || !(page.intro || page.prices || page.note)) return null;
     document.body.classList.add('flo-has-content');
 
@@ -234,5 +282,18 @@
 
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
+
+      // Masquer tout le reste de la page Site Creator (titre, blocs par défaut, pied de page)
+      // sur les pages dont le contenu vient d'ici.
+      //  - jamais dans l'éditeur Site Creator (sinon impossible d'y travailler)
+      //  - désactivable par page avec « keepSiteCreator: true » (ex. la boutique)
+      // (si le formulaire Contact n'a pas été trouvé, on ne masque rien pour ne pas le perdre)
+      if (content && !page.keepSiteCreator && !inEditor && !formMissing) {
+        var hideAll = el('style');
+        hideAll.textContent =
+          'body > *:not(.flo-hero):not(.flo-content):not(.flo-split):not(.flo-contact)' +
+          ':not(script):not(style):not(link):not(noscript){display:none !important;}';
+        document.head.appendChild(hideAll);
+      }
     });
 })();
