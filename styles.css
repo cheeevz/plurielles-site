@@ -259,7 +259,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-img {
   display: block;
   width: 100%;
-  margin: 32px 0 0;            /* espace entre le texte et l'enveloppe */
+  margin: 50px 0 0;            /* espace entre le texte et l'enveloppe */
 }
 
 /* Formulaire Site Creator déplacé dans la colonne de droite */
