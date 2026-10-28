@@ -234,7 +234,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   display: grid;
   grid-template-columns: 42% 1fr;
   gap: 6vw;
-  align-items: start;
+  align-items: stretch;       /* les deux colonnes ont la même hauteur */
   padding: 32px 7vw 96px 0;
 }
 .flo-contact-info {
@@ -263,6 +263,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 /* Formulaire Site Creator déplacé dans la colonne de droite */
 .flo-contact-form {
   justify-self: end;          /* calé à droite de la page */
+  align-self: stretch;        /* même hauteur que la colonne de gauche */
   width: 100%;
   max-width: 640px;           /* largeur du formulaire */
   background: #fff;
