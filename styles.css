@@ -235,7 +235,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   /* Deux colonnes de même largeur max, l'ensemble centré dans la page */
   grid-template-columns: minmax(0, 700px) minmax(0, 700px);
   justify-content: center;
-  gap: 10vw;
+  gap: 12vw;
   align-items: center;        /* bloc de gauche centré verticalement sur le formulaire */
   padding: 32px 7vw 96px;
 }
@@ -266,7 +266,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-form {
   width: 100%;
   background: #fff;
-  padding: 28px 40px 32px;
+  padding: 24px 32px 24px;
   box-sizing: border-box;
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -286,7 +286,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   padding-top: 0 !important;
 }
 .flo-contact-form textarea {
-  height: 64px !important;
+  height: 48px !important;
   min-height: 0 !important;
   resize: vertical;
 }
@@ -301,8 +301,19 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-form:empty { display: none; }
 .flo-contact-form label {
   font-family: 'DM Mono', monospace !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   letter-spacing: 0.08em;
+  margin-bottom: 3px !important;
+}
+/* Espacements verticaux resserrés entre les champs */
+.flo-contact-form form p,
+.flo-contact-form form .form-group,
+.flo-contact-form form [class*="field"],
+.flo-contact-form form [class*="Field"] {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 .flo-contact-form input:not([type=radio]):not([type=checkbox]):not([type=submit]),
 .flo-contact-form textarea,
@@ -312,7 +323,8 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   border: 1px solid #ddd !important;
   border-radius: 0 !important;
   background: #fff !important;
-  padding: 10px 12px !important;
+  padding: 7px 10px !important;
+  min-height: 0 !important;
   font-family: 'DM Mono', monospace !important;
   font-size: 12px !important;
   box-shadow: none !important;
@@ -324,7 +336,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   border-radius: 0 !important;
   background: #8c9a6c !important;
   color: #fff !important;
-  padding: 12px !important;
+  padding: 10px !important;
   font-family: 'DM Mono', monospace !important;
   font-size: 12px !important;
   letter-spacing: 0.2em;
