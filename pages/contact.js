@@ -21,7 +21,7 @@ Plurielles.page({
   links: [
     { label: 'Instagram @plurielles_studio', url: 'https://www.instagram.com/plurielles_studio/' }
   ],
-   text: [
+   text-fin: [
     "Nous reviendrons très vite vers vous !"
   ],
 
