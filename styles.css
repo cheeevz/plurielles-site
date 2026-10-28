@@ -233,9 +233,9 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact {
   display: grid;
   /* Deux colonnes de même largeur max, l'ensemble centré dans la page */
-  grid-template-columns: minmax(0, 560px) minmax(0, 560px);
+  grid-template-columns: minmax(0, 700px) minmax(0, 700px);
   justify-content: center;
-  gap: 5vw;
+  gap: 7vw;
   align-items: center;        /* bloc de gauche centré verticalement sur le formulaire */
   padding: 32px 7vw 96px;
 }
