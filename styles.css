@@ -232,17 +232,12 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 .flo-contact {
   display: grid;
-  grid-template-columns: 42% 1fr;
-  gap: 6vw;
-  align-items: stretch;       /* les deux colonnes ont la même hauteur */
-  padding: 32px 7vw 96px;      /* marges gauche/droite alignées sur le menu */
-}
-
-/* Colonne de gauche : texte en haut, enveloppe calée en bas,
-   pour occuper la même hauteur que le formulaire */
-.flo-contact-left {
-  display: flex;
-  flex-direction: column;
+  /* Deux colonnes de même largeur max, l'ensemble centré dans la page */
+  grid-template-columns: minmax(0, 560px) minmax(0, 560px);
+  justify-content: center;
+  gap: 5vw;
+  align-items: center;        /* bloc de gauche centré verticalement sur le formulaire */
+  padding: 32px 7vw 96px;
 }
 .flo-contact-info {
   border-top: 1px solid #1f1f1f;
@@ -264,17 +259,12 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-img {
   display: block;
   width: 100%;
-  margin: auto 0 0;            /* poussée en bas de la colonne */
-  padding-top: 40px;
-  box-sizing: border-box;
+  margin: 32px 0 0;            /* espace entre le texte et l'enveloppe */
 }
 
 /* Formulaire Site Creator déplacé dans la colonne de droite */
 .flo-contact-form {
-  justify-self: end;          /* calé à droite de la page */
-  align-self: stretch;        /* même hauteur que la colonne de gauche */
   width: 100%;
-  max-width: 640px;           /* largeur du formulaire */
   background: #fff;
   padding: 28px 40px 32px;
   box-sizing: border-box;
@@ -408,6 +398,6 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   .flo-split-text { padding: 0 16px 64px; }
 
   .flo-contact { grid-template-columns: 1fr; gap: 40px; padding: 16px 16px 64px; }
-  .flo-contact-img { margin-top: 0; padding-top: 32px; }
-  .flo-contact-form { max-width: none; padding: 20px; justify-self: stretch; }
+  .flo-contact-img { margin-top: 24px; }
+  .flo-contact-form { padding: 20px; }
 }
