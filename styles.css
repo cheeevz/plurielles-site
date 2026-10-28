@@ -262,12 +262,30 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 /* Formulaire Site Creator déplacé dans la colonne de droite */
 .flo-contact-form {
+  justify-self: end;          /* calé à droite de la page */
+  width: 100%;
+  max-width: 640px;           /* largeur du formulaire */
   background: #fff;
-  padding: 24px 32px 32px;
-  max-width: 420px;
+  padding: 32px 40px 40px;
+  box-sizing: border-box;
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   color: #1f1f1f;
+}
+
+/* Le formulaire Site Creator prend toute la largeur de la carte
+   (on retire sa propre carte, ses marges et ses largeurs limitées) */
+.flo-contact-form form,
+.flo-contact-form form div {
+  max-width: none !important;
+}
+.flo-contact-form form {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: 0 !important;
 }
 .flo-contact-form:empty { display: none; }
 .flo-contact-form label {
