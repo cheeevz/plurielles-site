@@ -235,12 +235,19 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   grid-template-columns: 42% 1fr;
   gap: 6vw;
   align-items: stretch;       /* les deux colonnes ont la même hauteur */
-  padding: 32px 7vw 96px 0;
+  padding: 32px 7vw 96px;      /* marges gauche/droite alignées sur le menu */
+}
+
+/* Colonne de gauche : texte en haut, enveloppe calée en bas,
+   pour occuper la même hauteur que le formulaire */
+.flo-contact-left {
+  display: flex;
+  flex-direction: column;
 }
 .flo-contact-info {
   border-top: 1px solid #1f1f1f;
   border-bottom: 1px solid #1f1f1f;
-  padding: 16px 16px 20px 7vw;
+  padding: 16px 0 20px;
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   line-height: 1.5;
@@ -256,8 +263,10 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 /* L'image s'arrête au bout des traits du bloc de texte */
 .flo-contact-img {
   display: block;
-  width: calc(100% - 3vw);
-  margin: 40px 0 0 3vw;
+  width: 100%;
+  margin: auto 0 0;            /* poussée en bas de la colonne */
+  padding-top: 40px;
+  box-sizing: border-box;
 }
 
 /* Formulaire Site Creator déplacé dans la colonne de droite */
@@ -267,7 +276,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   width: 100%;
   max-width: 640px;           /* largeur du formulaire */
   background: #fff;
-  padding: 32px 40px 40px;
+  padding: 28px 40px 32px;
   box-sizing: border-box;
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -279,6 +288,17 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-contact-form form,
 .flo-contact-form form div {
   max-width: none !important;
+}
+/* Formulaire plus compact */
+.flo-contact-form form > *:first-child,
+.flo-contact-form form > *:first-child > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.flo-contact-form textarea {
+  height: 64px !important;
+  min-height: 0 !important;
+  resize: vertical;
 }
 .flo-contact-form form {
   width: 100% !important;
@@ -387,8 +407,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   .flo-split-photo { position: relative; height: 60vh; }
   .flo-split-text { padding: 0 16px 64px; }
 
-  .flo-contact { grid-template-columns: 1fr; gap: 40px; padding: 16px 0 64px; }
-  .flo-contact-info { padding: 16px; }
-  .flo-contact-img { width: calc(100% - 32px); margin: 32px 16px 0; }
-  .flo-contact-form { margin: 0 16px; max-width: none; padding: 20px; }
+  .flo-contact { grid-template-columns: 1fr; gap: 40px; padding: 16px 16px 64px; }
+  .flo-contact-img { margin-top: 0; padding-top: 32px; }
+  .flo-contact-form { max-width: none; padding: 20px; justify-self: stretch; }
 }
