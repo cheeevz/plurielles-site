@@ -21,6 +21,9 @@ Plurielles.page({
   links: [
     { label: 'Instagram @plurielles_studio', url: 'https://www.instagram.com/plurielles_studio/' }
   ],
+   text: [
+    "Nous reviendrons très vite vers vous !"
+  ],
 
   // Image sous le bloc (l'enveloppe)
   image: 'https://studioplurielles.fr/data/files/plurielleslettrelogo.png',
