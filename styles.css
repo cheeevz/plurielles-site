@@ -427,6 +427,28 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   cursor: pointer;
 }
 
+/* ---------- Logo hors du flux ----------
+   Le logo (image avec beaucoup de marge transparente) ne pousse plus le menu vers le bas :
+   il est centré sur la ligne du menu, et le sous-titre est placé juste en dessous.
+   --flo-nav-top : distance entre le haut de la page et le menu (config.js > logo.navTop)
+   --flo-sub-gap : distance entre le milieu du logo et le sous-titre (accueil.js > logoSubtitleGap) */
+.flo-nav,
+.flo-bar .flo-nav {
+  padding-top: var(--flo-nav-top, 40px);
+}
+.flo-logo {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--flo-nav-top, 40px) + 10px);   /* milieu de la ligne du menu */
+  transform: translate(-50%, calc(-50% + var(--flo-logo-y, 0px)));
+  z-index: 1;
+}
+.flo-logo-subtitle {
+  top: calc(var(--flo-nav-top, 40px) + 10px + var(--flo-sub-gap, 30px));
+  transform: translate(-50%, -50%);
+  margin-top: 0;
+}
+
 /* =============================================================
    Mobile
    ============================================================= */
@@ -480,4 +502,20 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   .flo-contact { grid-template-columns: 1fr; gap: 40px; padding: 16px 16px 64px; }
   .flo-contact-img { margin-top: 24px; }
   .flo-contact-form { padding: 20px; }
+}
+
+/* Mobile : logo et sous-titre reviennent dans le flux, sous le menu replié */
+@media (max-width: 860px) {
+  .flo-nav,
+  .flo-bar .flo-nav { padding-top: 24px; }
+  .flo-logo {
+    position: static;
+    transform: none;
+  }
+  .flo-logo-subtitle {
+    position: static;
+    grid-row: 2;
+    transform: none;
+    margin-top: 2px;
+  }
 }

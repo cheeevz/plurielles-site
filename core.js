@@ -183,14 +183,16 @@
     if (config.logo.typoOffset) typo.style.marginTop = config.logo.typoOffset;
     logo.appendChild(typo);
 
-    // Sous-titre sous le logo (ex. « Studio floral »)
-    if (page && page.logoSubtitle) {
-      logo.appendChild(el('span', 'flo-logo-subtitle', page.logoSubtitle));
-    }
-
     nav.appendChild(buildMenu(config.menu.left, 'flo-left'));
     nav.appendChild(logo);
     nav.appendChild(buildMenu(config.menu.right, 'flo-right'));
+
+    // Sous-titre sous le logo (ex. « Studio floral »), placé par rapport à la ligne du menu
+    if (page && page.logoSubtitle) {
+      nav.appendChild(el('span', 'flo-logo-subtitle', page.logoSubtitle));
+      if (page.logoSubtitleGap) nav.style.setProperty('--flo-sub-gap', page.logoSubtitleGap);
+    }
+    if (config.logo.navTop) nav.style.setProperty('--flo-nav-top', config.logo.navTop);
     hero.appendChild(nav);
 
     var burger = el('button', 'flo-burger', 'Menu');

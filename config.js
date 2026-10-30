@@ -15,8 +15,9 @@ Plurielles.config({
     imageDark: '',
     width: '500px',         // largeur sur ordinateur
     widthMobile: '130px',   // largeur sur mobile
-    offset: '-5px'          // décalage vertical pour aligner « Plurielles » avec le menu
+    offset: '-5px',         // décalage vertical pour aligner « Plurielles » avec le menu
                             // (négatif = monte, positif = descend)
+    navTop: '40px'          // distance entre le haut de la page et le menu
   },
 
   // Liens du menu : le href doit être l'adresse exacte de la page dans Site Creator
