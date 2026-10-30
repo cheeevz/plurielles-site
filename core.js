@@ -102,10 +102,20 @@
     hero.style.setProperty('--flo-logo-y', config.logo.offset);
 
     if (page && page.fullscreen) {
-      // Accueil : photo plein écran
+      // Accueil : plein écran, une photo ou plusieurs côte à côte
       hero.classList.add('flo-full');
-      hero.style.backgroundImage = "url('" + page.image + "')";
-      hero.style.backgroundPosition = 'center ' + (page.position || '50%');
+      if (page.images && page.images.length) {
+        hero.classList.add('flo-full-split');
+        page.images.forEach(function (im) {
+          var cell = el('div', 'flo-full-img');
+          cell.style.backgroundImage = "url('" + im.url + "')";
+          cell.style.backgroundPosition = (im.positionX || '50%') + ' ' + (im.position || '50%');
+          hero.appendChild(cell);
+        });
+      } else {
+        hero.style.backgroundImage = "url('" + page.image + "')";
+        hero.style.backgroundPosition = 'center ' + (page.position || '50%');
+      }
     } else if (page && page.image && !page.layout) {
       // Page avec bannière photo
       hero.classList.add('flo-banner');
@@ -137,7 +147,12 @@
 
     var logo = el('a', 'flo-logo');
     logo.href = '/';
-    var isLight = hero.classList.contains('flo-bar');
+    // Menu et logo blancs uniquement sur l'accueil, foncés partout ailleurs
+    var isLight = !(page && page.fullscreen);
+    if (isLight) {
+      hero.classList.add('flo-dark');
+      hero.style.setProperty('--flo-text', config.bar.textColor);
+    }
 
     // Papillon (couleurs d'origine, jamais assombri)
     if (config.logo.symbol) {
@@ -161,6 +176,11 @@
     if (config.logo.typoScale) typo.style.width = (config.logo.typoScale * 100) + '%';
     if (config.logo.typoOffset) typo.style.marginTop = config.logo.typoOffset;
     logo.appendChild(typo);
+
+    // Sous-titre sous le logo (ex. « Studio floral »)
+    if (page && page.logoSubtitle) {
+      logo.appendChild(el('span', 'flo-logo-subtitle', page.logoSubtitle));
+    }
 
     nav.appendChild(buildMenu(config.menu.left, 'flo-left'));
     nav.appendChild(logo);
@@ -247,7 +267,23 @@
     return wrap;
   }
 
+  // Accueil : texte de présentation sous les photos
+  function buildHome() {
+    document.body.classList.add('flo-home');
+    var section = el('section', 'flo-home-intro');
+    var col = el('div', 'flo-home-col');
+    (page.statement || []).forEach(function (t) { col.appendChild(el('p', 'flo-home-statement', t)); });
+    if (page.text && page.text.length) {
+      var small = el('div', 'flo-home-text');
+      page.text.forEach(function (t) { small.appendChild(el('p', null, t)); });
+      col.appendChild(small);
+    }
+    section.appendChild(col);
+    return section;
+  }
+
   function buildContent() {
+    if (page && page.fullscreen) return page.statement ? buildHome() : null;
     if (page && page.layout === 'split') return buildSplit();
     if (page && page.layout === 'contact') return buildContact();
     if (!page || !(page.intro || page.prices || page.note)) return null;
@@ -282,7 +318,7 @@
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
-  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&display=swap');
+  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=Oswald:wght@300;400&display=swap');
 
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
     .then(function (res) {
