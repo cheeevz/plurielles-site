@@ -337,6 +337,52 @@
     return grid;
   }
 
+  // Bloc « duo » : photos superposées + texte manuscrit à gauche, grand texte + petit texte à droite
+  function buildDuo(b) {
+    var wrap = el('div', 'flo-b-duo');
+    var art = el('div', 'flo-b-duo-art');
+    (b.images || []).forEach(function (url, i) { art.appendChild(photo(url, 'flo-b-duo-img flo-b-duo-img' + (i + 1))); });
+    if (b.scriptImage) {
+      var si = el('img', 'flo-b-duo-script flo-b-duo-script-img');
+      si.src = b.scriptImage;
+      si.alt = (b.script || []).join(' ');
+      art.appendChild(si);
+    } else if (b.script) {
+      var sc = el('div', 'flo-b-duo-script');
+      b.script.forEach(function (line, i) { sc.appendChild(el('span', 'flo-b-duo-line flo-b-duo-line' + (i + 1), line)); });
+      art.appendChild(sc);
+    }
+    wrap.appendChild(art);
+
+    var col = el('div', 'flo-b-duo-text');
+    var st = el('div', 'flo-b-statement');
+    (b.statement || []).forEach(function (t) { st.appendChild(el('p', null, t)); });
+    col.appendChild(st);
+    if (b.text) {
+      var small = el('div', 'flo-b-small');
+      b.text.forEach(function (t) { small.appendChild(el('p', null, t)); });
+      col.appendChild(small);
+    }
+    wrap.appendChild(col);
+    return wrap;
+  }
+
+  // Bloc « menu » : liste de tarifs posée sur une image de fond
+  function buildMenuCard(b) {
+    var card = photo(b.background, 'flo-b-menu');
+    if (b.title) card.appendChild(el('h2', 'flo-b-menu-title', b.title));
+    var ul = el('ul', 'flo-b-menu-list');
+    (b.items || []).forEach(function (it) {
+      var li = el('li');
+      li.appendChild(el('span', 'flo-label', it.label));
+      li.appendChild(el('span', 'flo-dots'));
+      li.appendChild(el('span', 'flo-price', it.price));
+      ul.appendChild(li);
+    });
+    card.appendChild(ul);
+    return card;
+  }
+
   function buildBlocks() {
     document.body.classList.add('flo-has-content', 'flo-plain');
     var wrap = el('section', 'flo-blocks');
@@ -352,6 +398,10 @@
       } else if (b.type === 'statement') {
         node = el('div', 'flo-b-statement');
         (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'duo') {
+        node = buildDuo(b);
+      } else if (b.type === 'menu') {
+        node = buildMenuCard(b);
       } else if (b.type === 'services') {
         node = buildServices(b);
       }
@@ -397,7 +447,7 @@
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
-  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:wght@400;700&family=Oswald:wght@300;400&display=swap');
+  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:wght@400;700&family=Oswald:wght@300;400&family=Pinyon+Script&display=swap');
 
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
     .then(function (res) {

@@ -583,6 +583,74 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   line-height: 1.35;
 }
 
+/* Bloc « duo » (Mariages) : photos superposées + « Let's get married ! » à gauche */
+.flo-b-duo {
+  position: relative;
+  min-height: 25vw;
+  margin-bottom: 96px;
+}
+.flo-b-duo .flo-b-statement { margin: 0; width: auto; }
+.flo-b-duo-text {
+  margin-left: 47%;
+  width: 30%;
+}
+.flo-b-small {
+  margin-top: 1.8em;
+  max-width: 78%;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(12.5px, 1.01vw, 19px);
+  letter-spacing: 0.057em;
+  line-height: 1.4;
+}
+.flo-b-duo-art { position: absolute; inset: 0 auto 0 0; width: 47%; }
+.flo-b-duo-img { position: absolute; background: #e6e6e6 center / cover no-repeat; }
+.flo-b-duo-img1 { left: 44%; top: 3vw;   width: 10.5vw; aspect-ratio: 0.68; }
+.flo-b-duo-img2 { left: 69%; top: 8.7vw; width: 7.3vw;  aspect-ratio: 0.535; }
+/* Typo manuscrite : « Secular » sur la maquette (police payante, version d'essai) ;
+   Pinyon Script en attendant, ou une image via scriptImage dans mariage.js */
+.flo-b-duo-script {
+  position: absolute;
+  left: 52%;
+  top: 16vw;
+  z-index: 2;
+  font-family: 'Secular', 'Pinyon Script', cursive;
+  font-size: 3.2vw;
+  line-height: 0.95;
+  color: #111;
+}
+.flo-b-duo-line { display: block; }
+.flo-b-duo-line2 { padding-left: 1.6em; }
+.flo-b-duo-line3 { padding-left: 0.3em; }
+.flo-b-duo-script-img { width: 11vw; height: auto; }
+
+/* Bloc « menu » : tarifs sur une image de fond */
+.flo-b-menu {
+  margin: 0 0 96px 9.6%;
+  width: 53.5%;
+  padding: 6.3vw 3.6vw 5vw;
+  box-sizing: border-box;
+  background: #eceae6 center / cover no-repeat;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #111;
+}
+.flo-b-menu-title {
+  margin: 0 0 2.4em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: clamp(16px, 1.45vw, 28px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.flo-b-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 42vw;
+  font-size: clamp(12px, 0.95vw, 17px);
+  line-height: 1.35;
+}
+.flo-b-menu-list li { display: flex; align-items: baseline; gap: 8px; }
+
 @media (max-width: 860px) {
   .flo-blocks { padding-top: 40px; }
   .flo-b-text { max-width: none; }
@@ -593,6 +661,15 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
     margin: 0 16px;
   }
   .flo-b-service { grid-column: auto !important; }
+  .flo-b-duo { min-height: 0; }
+  .flo-b-duo-art { position: relative; width: 100%; height: 72vw; }
+  .flo-b-duo-img1 { left: 12%; top: 0; width: 40vw; }
+  .flo-b-duo-img2 { left: 56%; top: 14vw; width: 28vw; }
+  .flo-b-duo-script { left: 30%; top: 42vw; font-size: 10vw; }
+  .flo-b-duo-text { margin: 24px 16px 0; width: auto; }
+  .flo-b-small { max-width: none; }
+  .flo-b-menu { margin: 0 0 56px; width: 100%; padding: 40px 16px; }
+  .flo-b-menu-list { max-width: none; }
 }
 
 /* =============================================================
