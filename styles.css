@@ -655,16 +655,20 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 /* Bloc « split » (À propos) : photo à gauche, texte à droite */
 .flo-b-split {
   display: grid;
-  grid-template-columns: 51.5% 1fr;
+  /* colonne de texte plus étroite (34 % de l'écran) */
+  grid-template-columns: 51.5% minmax(0, 34vw);
   column-gap: 1.8vw;
-  align-items: start;
+  align-items: stretch;       /* la photo prend la hauteur du texte */
   margin-top: -18px;
   padding-right: 2.2vw;
 }
 .flo-b-split-img {
-  aspect-ratio: 0.957;
+  min-height: 30vw;           /* jamais trop basse sur les grands écrans */
   background: #e6e6e6 center / cover no-repeat;
 }
+/* le bas de la photo s'aligne sur la dernière ligne du texte */
+.flo-b-split-section:last-child,
+.flo-b-split-section:last-child p:last-child { margin-bottom: 0; }
 .flo-b-split-text {
   font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(11.5px, 0.82vw, 15px);
@@ -800,6 +804,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-menu-list { max-width: none; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
   .flo-b-split { grid-template-columns: 1fr; row-gap: 32px; margin-top: 0; padding-right: 0; }
+  .flo-b-split-img { min-height: 0; aspect-ratio: 0.957; }
   .flo-b-split-text { padding: 0 16px; }
   .flo-b-split-section.is-spaced { margin-top: 2em; }
   .flo-b-collage { height: auto; columns: 2; column-gap: 10px; margin: 0 16px; }
