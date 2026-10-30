@@ -13,8 +13,8 @@ Plurielles.page({
   // position  : cadrage vertical   (0% = haut, 100% = bas)
   // positionX : cadrage horizontal (0% = gauche, 100% = droite)
   images: [
-    { url: 'https://COLLER-ICI-URL-PHOTO-GAUCHE.jpg', position: '50%', positionX: '50%' },
-    { url: 'https://COLLER-ICI-URL-PHOTO-DROITE.jpg', position: '50%', positionX: '50%' }
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '50%', positionX: '50%' },
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%' }
   ],
 
   // ----- Texte sous les photos -----
