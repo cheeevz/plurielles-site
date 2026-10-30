@@ -418,7 +418,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 .flo-burger {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 30px;
   right: 22px;
   z-index: 60;
@@ -550,4 +550,43 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
     transform: none;
     margin-top: 2px;
   }
+}
+
+/* =============================================================
+   En-tête fixe : menu + logo restent en haut de l'écran
+   ============================================================= */
+.flo-nav,
+.flo-bar .flo-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-bottom: 20px;
+  transition: background-color 0.25s ease, padding 0.25s ease;
+}
+.flo-logo { transition: top 0.25s ease; }
+.flo-burger { z-index: 1001; }
+
+/* Pages sans photo : le bandeau garde sa hauteur pour ne pas passer sous le menu */
+.flo-hero.flo-bar { height: calc(var(--flo-nav-top, 40px) + 22px + 24px); }
+
+/* Après défilement : menu compact, fond clair, texte et logo foncés */
+.flo-scrolled .flo-nav {
+  --flo-nav-top: 18px;
+  padding-bottom: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.flo-hero.flo-scrolled { --flo-text: #1f1f1f; }
+.flo-scrolled .flo-nav a,
+.flo-scrolled .flo-burger { text-shadow: none; }
+.flo-scrolled .flo-logo img { filter: brightness(0.25); }
+.flo-scrolled .flo-logo-subtitle { opacity: 0; }
+.flo-logo-subtitle { transition: opacity 0.2s ease; }
+
+@media (max-width: 860px) {
+  .flo-scrolled .flo-nav { --flo-nav-top: 12px; }
+  .flo-hero.flo-bar { height: 80px; }
 }

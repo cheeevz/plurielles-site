@@ -192,7 +192,8 @@
       nav.appendChild(el('span', 'flo-logo-subtitle', page.logoSubtitle));
       if (page.logoSubtitleGap) nav.style.setProperty('--flo-sub-gap', page.logoSubtitleGap);
     }
-    if (config.logo.navTop) nav.style.setProperty('--flo-nav-top', config.logo.navTop);
+    // Réglé sur l'en-tête (et non sur le menu) pour que l'état « après défilement » puisse le modifier
+    if (config.logo.navTop) hero.style.setProperty('--flo-nav-top', config.logo.navTop);
     hero.appendChild(nav);
 
     var burger = el('button', 'flo-burger', 'Menu');
@@ -359,6 +360,16 @@
 
       var hero = buildHeader();
       document.body.insertBefore(hero, document.body.firstChild);
+
+      // En-tête fixe : le menu passe sur un fond clair, en foncé, quand le contenu défile dessous.
+      var onScroll = function () {
+        // accueil : après les photos ; autres pages : dès qu'on commence à défiler
+        var limit = hero.classList.contains('flo-full') ? hero.offsetHeight - 90 : 1;
+        hero.classList.toggle('flo-scrolled', window.scrollY > limit);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
 
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
