@@ -370,6 +370,34 @@
     return box;
   }
 
+  // Paragraphe avec retours à la ligne (« \n ») sans espace entre les lignes
+  function para(text, cls) {
+    var p = el('p', cls);
+    String(text).split('\n').forEach(function (line, i) {
+      if (i) p.appendChild(document.createElement('br'));
+      p.appendChild(document.createTextNode(line));
+    });
+    return p;
+  }
+
+  // Bloc « split » (À propos) : grande photo collée au bord gauche, texte en sections à droite
+  function buildSplitBlock(b) {
+    var wrap = el('div', 'flo-b-split');
+    var ph = photo(b.image, 'flo-b-split-img');
+    ph.style.backgroundPosition = (b.positionX || '50%') + ' ' + (b.position || '50%');
+    wrap.appendChild(ph);
+    var col = el('div', 'flo-b-split-text');
+    (b.sections || []).forEach(function (sec) {
+      var s = el('div', 'flo-b-split-section' + (sec.spaceBefore ? ' is-spaced' : '') +
+        (sec.paragraphs && sec.paragraphs.length ? '' : ' is-heading-only'));
+      if (sec.heading) s.appendChild(el('h2', 'flo-b-split-heading' + (sec.bold ? ' is-bold' : ''), sec.heading));
+      (sec.paragraphs || []).forEach(function (t) { s.appendChild(para(t)); });
+      col.appendChild(s);
+    });
+    wrap.appendChild(col);
+    return wrap;
+  }
+
   // Bloc « collage » : photos entières placées librement (positions en % de la largeur d'écran)
   function buildCollage(b) {
     var box = el('div', 'flo-b-collage');
@@ -476,6 +504,8 @@
       } else if (b.type === 'statement') {
         node = el('div', 'flo-b-statement');
         (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'split') {
+        node = buildSplitBlock(b);
       } else if (b.type === 'collage') {
         node = buildCollage(b);
       } else if (b.type === 'image') {

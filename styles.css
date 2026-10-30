@@ -652,6 +652,39 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-menu-list li { display: flex; align-items: baseline; gap: 8px; }
 
+/* Bloc « split » (À propos) : photo à gauche, texte à droite */
+.flo-b-split {
+  display: grid;
+  grid-template-columns: 51.5% 1fr;
+  column-gap: 1.8vw;
+  align-items: start;
+  margin-top: -18px;
+  padding-right: 2.2vw;
+}
+.flo-b-split-img {
+  aspect-ratio: 0.957;
+  background: #e6e6e6 center / cover no-repeat;
+}
+.flo-b-split-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11.5px, 0.82vw, 15px);
+  line-height: 1.4;
+  text-align: justify;
+}
+.flo-b-split-text p { margin: 0 0 1.4em; }
+.flo-b-split-section { margin-bottom: 3em; }
+.flo-b-split-section.is-spaced { margin-top: 6em; }
+.flo-b-split-heading {
+  margin: 0 0 1.4em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: inherit;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+}
+.flo-b-split-heading.is-bold { font-weight: 700; }
+.flo-b-split-section.is-heading-only { margin-bottom: 0; }
+
 /* Bloc « collage » (Projets) : photos entières placées librement */
 .flo-b-collage {
   position: relative;
@@ -766,6 +799,9 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-menu { margin: 0 0 56px; width: 100%; padding: 40px 16px; }
   .flo-b-menu-list { max-width: none; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
+  .flo-b-split { grid-template-columns: 1fr; row-gap: 32px; margin-top: 0; padding-right: 0; }
+  .flo-b-split-text { padding: 0 16px; }
+  .flo-b-split-section.is-spaced { margin-top: 2em; }
   .flo-b-collage { height: auto; columns: 2; column-gap: 10px; margin: 0 16px; }
   .flo-b-collage-img { position: static; width: 100% !important; margin-bottom: 10px; break-inside: avoid; }
   .flo-b-video { left: 0; top: 0; width: 100%; }
