@@ -337,11 +337,72 @@
     return grid;
   }
 
+  // Vidéo en lecture automatique (muette, obligatoire pour les navigateurs),
+  // avec un bouton pour activer le son. Option : « audio » = piste sonore séparée
+  // (ex. chants d'oiseaux) jouée à la place du son de la vidéo.
+  function buildVideo(b) {
+    var box = el('div', 'flo-b-video');
+    var v = el('video');
+    v.src = b.video;
+    if (b.poster) v.poster = b.poster;
+    v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('muted', '');
+    box.appendChild(v);
+
+    if (b.sound !== false) {
+      var audio = null;
+      if (b.audio) { audio = el('audio'); audio.src = b.audio; audio.loop = true; box.appendChild(audio); }
+      var btn = el('button', 'flo-b-video-sound', 'Son : off');
+      btn.type = 'button';
+      btn.addEventListener('click', function () {
+        var on;
+        if (audio) {
+          on = audio.paused;
+          if (on) { audio.currentTime = v.currentTime % (audio.duration || 1e9); audio.play(); } else { audio.pause(); }
+        } else {
+          v.muted = !v.muted; on = !v.muted;
+        }
+        btn.textContent = on ? 'Son : on' : 'Son : off';
+      });
+      box.appendChild(btn);
+    }
+    return box;
+  }
+
+  // Bloc « image » : grande photo pleine largeur
+  function buildWide(b) {
+    var d = photo(b.image, 'flo-b-wide');
+    if (b.height) d.style.height = b.height;
+    d.style.backgroundPosition = (b.positionX || '50%') + ' ' + (b.position || '50%');
+    return d;
+  }
+
+  // Bloc « tarifs » : tableau nom — prix — description, puis une note
+  function buildPriceTable(b) {
+    var wrap = el('div', 'flo-b-prices');
+    if (b.title) wrap.appendChild(el('h2', 'flo-b-prices-title', b.title));
+    (b.items || []).forEach(function (it) {
+      var row = el('div', 'flo-b-prices-row');
+      row.appendChild(el('span', 'flo-b-prices-name', it.label));
+      row.appendChild(el('span', 'flo-b-prices-dash'));
+      row.appendChild(el('span', 'flo-b-prices-price', it.price));
+      row.appendChild(el('span', 'flo-b-prices-desc', it.text || ''));
+      wrap.appendChild(row);
+    });
+    if (b.note) {
+      wrap.appendChild(el('span', 'flo-b-prices-sep'));
+      wrap.appendChild(el('p', 'flo-b-prices-note', b.note));
+    }
+    return wrap;
+  }
+
   // Bloc « duo » : photos superposées + texte manuscrit à gauche, grand texte + petit texte à droite
   function buildDuo(b) {
     var wrap = el('div', 'flo-b-duo');
     var art = el('div', 'flo-b-duo-art');
     (b.images || []).forEach(function (url, i) { art.appendChild(photo(url, 'flo-b-duo-img flo-b-duo-img' + (i + 1))); });
+    if (b.video) art.appendChild(buildVideo(b));
     if (b.scriptImage) {
       var si = el('img', 'flo-b-duo-script flo-b-duo-script-img');
       si.src = b.scriptImage;
@@ -398,6 +459,10 @@
       } else if (b.type === 'statement') {
         node = el('div', 'flo-b-statement');
         (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'image') {
+        node = buildWide(b);
+      } else if (b.type === 'prices') {
+        node = buildPriceTable(b);
       } else if (b.type === 'duo') {
         node = buildDuo(b);
       } else if (b.type === 'menu') {
@@ -447,7 +512,7 @@
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
-  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:wght@400;700&family=Oswald:wght@300;400&family=Pinyon+Script&display=swap');
+  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,700&family=Oswald:wght@300;400&family=Pinyon+Script&display=swap');
 
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
     .then(function (res) {
