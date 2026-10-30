@@ -913,9 +913,11 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-scrolled .flo-nav {
   --flo-nav-top: 18px;
   padding-bottom: 14px;
-  background: rgba(255, 255, 255, 0.88);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  /* fond de l'en-tête au défilement : la dernière valeur règle l'opacité
+     (1 = blanc plein, 0 = transparent) */
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 .flo-hero.flo-scrolled { --flo-text: #1f1f1f; }
 .flo-scrolled .flo-nav a,
