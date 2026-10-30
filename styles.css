@@ -619,6 +619,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   color: #111;
 }
 .flo-b-duo-line { display: block; }
+.flo-b-duo-line1 { margin-bottom: -0.28em; }   /* rapproche « Let's » de « get » */
 .flo-b-duo-line2 { padding-left: 1.6em; }
 .flo-b-duo-line3 { padding-left: 0.3em; }
 .flo-b-duo-script-img { width: 11vw; height: auto; }
