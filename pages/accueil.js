@@ -8,7 +8,7 @@ Plurielles.page({
   fullscreen: true,
 
   logoSubtitle: 'Studio floral',
-  logoSubtitleGap: '30px',   // écart entre le milieu de « Plurielles » et « Studio floral »
+  logoSubtitleGap: '36px',   // écart entre le milieu de « Plurielles » et « Studio floral »
 
   // ----- Photos (gauche, puis droite) -----
   // position   : cadrage vertical   (0% = haut, 100% = bas)

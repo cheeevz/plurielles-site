@@ -69,7 +69,7 @@
   display: flex;
   align-items: center;
   font-family: 'DM Mono', monospace;
-  font-size: 14px;
+  font-size: 16px;             /* taille du menu */
   font-weight: 400;
   letter-spacing: 0.06em;
 }
@@ -132,7 +132,7 @@
   margin-top: -40px;
   white-space: nowrap;
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;             /* taille de « Studio floral » */
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--flo-text, #fff);
@@ -444,7 +444,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-logo {
   position: absolute;
   left: 50%;
-  top: calc(var(--flo-nav-top, 40px) + 10px);   /* milieu de la ligne du menu */
+  top: calc(var(--flo-nav-top, 40px) + 11px);   /* milieu de la ligne du menu */
   transform: translate(-50%, calc(-50% + var(--flo-logo-y, 0px)));
   z-index: 1;
 }
@@ -453,7 +453,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-right { grid-column: 3; grid-row: 1; }
 
 .flo-logo-subtitle {
-  top: calc(var(--flo-nav-top, 40px) + 10px + var(--flo-sub-gap, 30px));
+  top: calc(var(--flo-nav-top, 40px) + 11px + var(--flo-sub-gap, 30px));
   transform: translate(-50%, -50%);
   margin-top: 0;
 }
@@ -496,7 +496,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   .flo-hero.flo-full-split { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
   .flo-home-col { margin: 0 16px; width: auto; }
   .flo-home-text { max-width: none; }
-  .flo-logo-subtitle { font-size: 9px; }
+  .flo-logo-subtitle { font-size: 10px; }
 
   .flo-title { left: 16px; bottom: 22px; }
   .flo-title-brand { font-size: 26px; }
