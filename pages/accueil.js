@@ -16,7 +16,7 @@ Plurielles.page({
   // zoom       : 1 = remplit le cadre ; plus grand = zoome ; plus petit = dézoome
   // background : couleur visible autour de la photo quand zoom < 1 (prendre celle du mur)
   images: [
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '25%', positionX: '40%', zoom: 1.9 },
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '30%', positionX: '60%', zoom: 1.9 },
     { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%', zoom: 1 }
   ],
 
