@@ -234,7 +234,8 @@
 
   function buildContact() {
     document.body.classList.add('flo-has-content');
-    var wrap = el('section', 'flo-contact');
+    if (page.texture === false) document.body.classList.add('flo-plain');
+    var wrap = el('div', 'flo-contact');
 
     var left = el('div', 'flo-contact-left');
     var info = el('div', 'flo-contact-info');
@@ -273,7 +274,12 @@
       if (!inEditor) console.warn('[Plurielles] formulaire introuvable :', page.formSelector);
     }
     wrap.appendChild(right);
-    return wrap;
+
+    // Nouvelle maquette : grand titre de page au-dessus des deux colonnes
+    var outer = el('section', 'flo-contact-page' + (page.pageTitle ? ' flo-blocks' : ''));
+    if (page.pageTitle) outer.appendChild(el('h1', 'flo-b-title', page.pageTitle));
+    outer.appendChild(wrap);
+    return outer;
   }
 
   // Accueil : texte de présentation sous les photos

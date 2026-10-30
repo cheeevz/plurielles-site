@@ -4,13 +4,13 @@
 */
 Plurielles.page({
   layout: 'contact',
+  pageTitle: 'Contact',           // grand titre en haut de page (nouvelle maquette)
+  texture: false,                 // fond blanc uni, sans texture
 
-  // En-tête clair (comme À propos)
-  header: {
-    background: '#eeeeec',
+  header: {                       // en-tête blanc, menu foncé
+    background: '#ffffff',
     textColor: '#1f1f1f'
   },
-  // logoImage: 'https://...',   // version du logo à typo foncée, quand elle existe
 
   // ----- Colonne de gauche -----
   title: 'Nous contacter',
@@ -29,5 +29,5 @@ Plurielles.page({
   // ----- Colonne de droite -----
   // Sélecteur CSS du bloc formulaire créé dans Site Creator (à récupérer avec l'inspecteur).
   // Tant qu'il est vide ou introuvable, le formulaire reste à sa place d'origine.
-    formSelector: 'form.ContactForm'
+  formSelector: 'form.ContactForm'
 });

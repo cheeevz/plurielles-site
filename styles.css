@@ -652,6 +652,28 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-menu-list li { display: flex; align-items: baseline; gap: 8px; }
 
+/* Page Contact, nouvelle maquette : titre, infos + enveloppe à gauche, formulaire à droite */
+.flo-contact-page.flo-blocks .flo-b-title { margin-bottom: 0.9em; }
+.flo-contact-page.flo-blocks .flo-contact {
+  grid-template-columns: minmax(0, 40vw) minmax(0, 560px);
+  justify-content: space-between;
+  align-items: start;
+  gap: 4vw;
+  padding: 0 var(--flo-nav-side, 3vw);
+}
+.flo-contact-page.flo-blocks .flo-contact-info {
+  border: 0;
+  padding: 0;
+}
+.flo-contact-page.flo-blocks .flo-contact-info > * { max-width: none; }
+.flo-contact-page.flo-blocks .flo-contact-info p { margin: 0 0 1.4em; }
+.flo-contact-page.flo-blocks .flo-contact-info p:last-child { margin-bottom: 0; }
+.flo-contact-page.flo-blocks .flo-contact-img {
+  width: 100%;
+  margin: 56px 0 0;
+}
+.flo-contact-page.flo-blocks .flo-contact-form { padding-top: 0; }
+
 /* Bloc « split » (À propos) : photo à gauche, texte à droite */
 .flo-b-split {
   display: grid;
@@ -804,6 +826,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-menu-list { max-width: none; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
   .flo-b-split { grid-template-columns: 1fr; row-gap: 32px; margin-top: 0; padding-right: 0; }
+  .flo-contact-page.flo-blocks .flo-contact { grid-template-columns: 1fr; padding: 0 16px; }
   .flo-b-split-img { min-height: 0; aspect-ratio: 0.957; }
   .flo-b-split-text { padding: 0 16px; }
   .flo-b-split-section.is-spaced { margin-top: 2em; }
