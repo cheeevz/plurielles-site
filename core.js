@@ -291,7 +291,77 @@
     return section;
   }
 
+  // Mise en page « blocs » : une suite de blocs (titre, texte, frise, grand texte, prestations)
+  // décrite dans le fichier de la page. Réutilisable pour toutes les nouvelles pages.
+  function photo(url, cls) {
+    var d = el('div', cls);
+    if (url) d.style.backgroundImage = "url('" + url + "')";
+    return d;
+  }
+
+  // Frise : défilement horizontal à la molette/au pavé tactile, et par glisser à la souris
+  function buildStrip(b) {
+    var strip = el('div', 'flo-b-strip');
+    if (b.height) strip.style.setProperty('--flo-strip-h', b.height);
+    if (b.ratio) strip.style.setProperty('--flo-strip-ratio', b.ratio);
+    (b.images || []).forEach(function (url) { strip.appendChild(photo(url, 'flo-b-strip-img')); });
+
+    var down = false, startX = 0, startScroll = 0, moved = false;
+    strip.addEventListener('mousedown', function (e) {
+      down = true; moved = false; startX = e.pageX; startScroll = strip.scrollLeft;
+      strip.classList.add('is-dragging');
+    });
+    window.addEventListener('mouseup', function () { down = false; strip.classList.remove('is-dragging'); });
+    strip.addEventListener('mousemove', function (e) {
+      if (!down) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      strip.scrollLeft = startScroll - dx;
+      e.preventDefault();
+    });
+    strip.addEventListener('click', function (e) { if (moved) e.preventDefault(); }, true);
+    return strip;
+  }
+
+  function buildServices(b) {
+    var grid = el('div', 'flo-b-services');
+    (b.items || []).forEach(function (it, i) {
+      var card = el('div', 'flo-b-service');
+      if (it.col) card.style.gridColumn = it.col;
+      card.appendChild(el('span', 'flo-b-service-num', it.num || ('00' + (i + 1)).slice(-3)));
+      card.appendChild(el('h3', 'flo-b-service-title', it.title));
+      card.appendChild(photo(it.image, 'flo-b-service-img'));
+      if (it.text) card.appendChild(el('p', 'flo-b-service-text', it.text));
+      grid.appendChild(card);
+    });
+    return grid;
+  }
+
+  function buildBlocks() {
+    document.body.classList.add('flo-has-content', 'flo-plain');
+    var wrap = el('section', 'flo-blocks');
+    (page.blocks || []).forEach(function (b) {
+      var node;
+      if (b.type === 'title') {
+        node = el('h1', 'flo-b-title', b.text);
+      } else if (b.type === 'text') {
+        node = el('div', 'flo-b-text');
+        (b.paragraphs || []).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'strip') {
+        node = buildStrip(b);
+      } else if (b.type === 'statement') {
+        node = el('div', 'flo-b-statement');
+        (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'services') {
+        node = buildServices(b);
+      }
+      if (node) wrap.appendChild(node);
+    });
+    return wrap;
+  }
+
   function buildContent() {
+    if (page && page.layout === 'blocks') return buildBlocks();
     if (page && page.fullscreen) return page.statement ? buildHome() : null;
     if (page && page.layout === 'split') return buildSplit();
     if (page && page.layout === 'contact') return buildContact();
@@ -327,7 +397,7 @@
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
-  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=Oswald:wght@300;400&display=swap');
+  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:wght@400;700&family=Oswald:wght@300;400&display=swap');
 
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
     .then(function (res) {
@@ -344,7 +414,9 @@
       }
 
       // Texture de fond sur toutes les pages sauf l'accueil
-      if (!isHome && config.texture && config.texture.image) {
+      if (!isHome && page && page.texture === false) {
+        // page sur fond blanc uni, sans texture
+      } else if (!isHome && config.texture && config.texture.image) {
         var t = config.texture;
         var veil = 1 - (t.opacity == null ? 1 : t.opacity);
         var base = t.baseColor || '#eeeeec';

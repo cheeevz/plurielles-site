@@ -1,36 +1,62 @@
 /*
-  Page Événement — adresse : /evenement
+  Page Événements — adresse : /evenement
+  Mise en page en « blocs », de haut en bas (nouvelle maquette)
 */
 Plurielles.page({
+  layout: 'blocks',
+  texture: false,                 // fond blanc uni, sans texture
 
-  // ----- Bannière -----
-  image: 'https://studioplurielles.fr/data/files/img_5480zretouche3.png',
-  title: 'Événement',
-  position: '35%',    // cadrage vertical   : 0% = haut, 100% = bas
-  positionX: '100%',  // cadrage horizontal : 0% = gauche, 100% = droite
-  zoom: 1.25,         // 1 = normal, 1.2 = 120 %...
+  header: {                       // en-tête blanc, menu foncé
+    background: '#ffffff',
+    textColor: '#1f1f1f'
+  },
 
-  // ----- Texte -----
-  // À adapter : ce texte est pour l'instant celui de la page Hommage
-  intro: [
-    "Chez Plurielles, accompagner le deuil est au cœur même de notre métier. Pour nous, les fleurs sont un langage. Elles racontent une histoire, un souvenir, un détail, qui nous permettent de composer des hommages sur-mesure.",
-    "Nous pensons nos créations comme un ensemble. Les fleurs prennent place dans l’espace, se déploient et créent une présence qui accompagne ce moment avec douceur.",
-    "C’est avec une écoute attentive et bienveillante de vos souhaits et de vos souvenirs, que nous donnons forme à des hommages sincères."
-  ],
+  blocks: [
 
-  menuTitle: 'Menu',
-  prices: [
-    { label: 'Bouquet de mariée',                    price: 'à partir de 80 €' },
-    { label: 'Bouquet de demoiselle d’honneur',      price: 'à partir de 40 €' },
-    { label: 'Boutonnière',                          price: 'à partir de 20 €' },
-    { label: 'Bout de banc',                         price: 'à partir de 15 €' },
-    { label: 'Décors d’allée (compositions au sol)', price: 'à partir de 90 €' },
-    { label: 'Arche ou structure florale',           price: 'à partir de 500 €' },
-    { label: 'Composition d’accueil',                price: 'à partir de 200 €' },
-    { label: 'Soliflore',                            price: 'à partir de 20 €' },
-    { label: 'Centre de table',                      price: 'à partir de 60 €' },
-    { label: 'Décors de buffet & bar',               price: 'à partir de 120 €' },
-    { label: 'Sculpture florale',                    price: 'à partir de 150 €' },
-    { label: 'Créations spécifiques ou configuration particulière', price: 'sur demande' }
+    { type: 'title', text: 'Événements' },
+
+    { type: 'text', paragraphs: [
+      "Nous mettons le végétal au service de votre image et de vos événements, qu’ils soient intimistes ou de grande envergure.",
+      "Nous concevons des créations florales inspirées de votre univers, de vos valeurs et du lieu. Chaque projet est pensé dans son ensemble afin de créer une expérience visuelle forte, cohérente et fidèle à votre identité."
+    ]},
+
+    // Frise : toutes les photos ont la même largeur ; on la fait défiler à l'horizontale.
+    // Ajouter / retirer / réordonner des photos librement.
+    { type: 'strip', images: [
+      'https://COLLER-ICI-URL-PHOTO-01.jpg',
+      'https://COLLER-ICI-URL-PHOTO-02.jpg',
+      'https://COLLER-ICI-URL-PHOTO-03.jpg',
+      'https://COLLER-ICI-URL-PHOTO-04.jpg',
+      'https://COLLER-ICI-URL-PHOTO-05.jpg',
+      'https://COLLER-ICI-URL-PHOTO-06.jpg',
+      'https://COLLER-ICI-URL-PHOTO-07.jpg',
+      'https://COLLER-ICI-URL-PHOTO-08.jpg',
+      'https://COLLER-ICI-URL-PHOTO-09.jpg',
+      'https://COLLER-ICI-URL-PHOTO-10.jpg',
+      'https://COLLER-ICI-URL-PHOTO-11.jpg',
+      'https://COLLER-ICI-URL-PHOTO-12.jpg',
+      'https://COLLER-ICI-URL-PHOTO-13.jpg',
+      'https://COLLER-ICI-URL-PHOTO-14.jpg',
+      'https://COLLER-ICI-URL-PHOTO-15.jpg',
+      'https://COLLER-ICI-URL-PHOTO-16.jpg'
+    ]},
+
+    { type: 'statement', text: "De la conception au sourcing, en passant par la création et la production des compositions, jusqu’à l’installation et la désinstallation, nous nous occupons du projet floral de A à Z." },
+
+    // Prestations. « col » place la carte dans une colonne précise (1 à 4).
+    { type: 'services', items: [
+      { title: 'Événements', image: 'https://COLLER-ICI-URL-EVENEMENTS.jpg',
+        text: "Lancement de marque, dîners, vernissage, événement presse, cocktail et événement privés." },
+      { title: 'Tables et réceptions', image: 'https://COLLER-ICI-URL-TABLES.jpg',
+        text: "Scénographie florale et végétale, stylisme de table, buffet et d’espace de réception." },
+      { title: 'Image et éditorial', image: 'https://COLLER-ICI-URL-EDITORIAL.jpg',
+        text: "Direction artistique florale et végétale pour shootings, campagnes de marque et productions éditoriales." },
+      { title: 'Installations', image: 'https://COLLER-ICI-URL-INSTALLATIONS.jpg',
+        text: "Installations florales et végétales éphémères, vitrines, décors sur-mesure et mise en scène d’espace." },
+      { title: 'Direction artistique', image: 'https://COLLER-ICI-URL-DIRECTION.jpg', col: 1,
+        text: "Recherche matière, textures, végétaux, contenants, en accord avec l’idée de chaque projet." },
+      { title: 'Ateliers et expériences', image: 'https://COLLER-ICI-URL-ATELIERS.jpg', col: 3,
+        text: "Expériences créatives et interventions végétales pour les marques et les entreprises." }
+    ]}
   ]
 });
