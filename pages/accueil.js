@@ -10,11 +10,13 @@ Plurielles.page({
   logoSubtitle: 'Studio floral',
 
   // ----- Photos (gauche, puis droite) -----
-  // position  : cadrage vertical   (0% = haut, 100% = bas)
-  // positionX : cadrage horizontal (0% = gauche, 100% = droite)
+  // position   : cadrage vertical   (0% = haut, 100% = bas)
+  // positionX  : cadrage horizontal (0% = gauche, 100% = droite)
+  // zoom       : 1 = remplit le cadre ; plus grand = zoome ; plus petit = dézoome
+  // background : couleur visible autour de la photo quand zoom < 1 (prendre celle du mur)
   images: [
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '50%', positionX: '50%' },
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%' }
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '50%', positionX: '50%', zoom: 1.3 },
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%', zoom: 0.8, background: '#c9c9cb' }
   ],
 
   // ----- Texte sous les photos -----

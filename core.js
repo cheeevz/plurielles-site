@@ -108,8 +108,14 @@
         hero.classList.add('flo-full-split');
         page.images.forEach(function (im) {
           var cell = el('div', 'flo-full-img');
-          cell.style.backgroundImage = "url('" + im.url + "')";
-          cell.style.backgroundPosition = (im.positionX || '50%') + ' ' + (im.position || '50%');
+          if (im.background) cell.style.backgroundColor = im.background;
+          var pic = el('div', 'flo-full-img-pic');
+          var focus = (im.positionX || '50%') + ' ' + (im.position || '50%');
+          pic.style.backgroundImage = "url('" + im.url + "')";
+          pic.style.backgroundPosition = focus;
+          pic.style.transformOrigin = focus;
+          pic.style.transform = 'scale(' + (im.zoom || 1) + ')';
+          cell.appendChild(pic);
           hero.appendChild(cell);
         });
       } else {

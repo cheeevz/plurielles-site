@@ -144,6 +144,13 @@
   grid-template-columns: 1fr 1fr;
 }
 .flo-full-img {
+  position: relative;
+  overflow: hidden;
+  background-color: #c8c9cb;   /* visible autour de la photo si zoom < 1 */
+}
+.flo-full-img-pic {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-repeat: no-repeat;
 }
