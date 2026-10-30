@@ -173,16 +173,20 @@ body.flo-home { background: #fff !important; }
   color: #111;
 }
 .flo-home-col p { margin: 0; }
+/* Typo d'après les réglages Canva : Oswald, espacement des lettres 57 (= 0.057em),
+   interligne 1.4 ; tailles dans le rapport 11,9 (majuscules) / 8,6 (minuscules) */
 .flo-home-statement {
   font-size: clamp(17px, 1.4vw, 26px);
-  line-height: 1.3;
+  line-height: 1.4;
+  letter-spacing: 0.057em;
   text-transform: uppercase;
 }
 .flo-home-text {
   margin-top: 1.8em;
   max-width: 78%;
-  font-size: clamp(12px, 0.85vw, 15px);
-  line-height: 1.45;
+  font-size: clamp(12.5px, 1.01vw, 19px);   /* = taille des majuscules × 8,6 / 11,9 */
+  line-height: 1.4;
+  letter-spacing: 0.057em;
 }
 
 /* ---------- Titre des bannières ---------- */
