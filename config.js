@@ -4,17 +4,17 @@
 Plurielles.config({
 
   logo: {
-    // Logo fleur (couleurs d'origine)
+    // Papillon sous la typo : laisser vide pour n'afficher que la typo
     symbol: '',
-    // Typo « Plurielles » blanche ou noire,
+    // Typo « Plurielles » blanche, posée au centre du papillon
     image: 'https://yu4g9wciszu.infomaniak.site/data/files/photos/pluriellesblanctypo.png',
     typoScale: 1,           // taille de la typo par rapport au papillon (1 = même largeur)
     typoOffset: '0px',      // décalage vertical de la typo sur le papillon (négatif = monte)
     // Version à typo foncée pour les pages à fond clair.
     // Laisser vide : le logo blanc est alors assombri automatiquement.
     imageDark: '',
-    width: '210px',         // largeur sur ordinateur
-    widthMobile: '150px',   // largeur sur mobile
+    width: '190px',         // largeur sur ordinateur
+    widthMobile: '130px',   // largeur sur mobile
     offset: '-5px'          // décalage vertical pour aligner « Plurielles » avec le menu
                             // (négatif = monte, positif = descend)
   },
@@ -22,7 +22,7 @@ Plurielles.config({
   // Liens du menu : le href doit être l'adresse exacte de la page dans Site Creator
   menu: {
     left: [
-      { label: 'Événement', href: '/evenement' },
+      { label: 'Événements', href: '/evenement' },
       { label: 'Mariage',   href: '/mariage' },
       { label: 'Hommage',   href: '/hommage' }
     ],
@@ -53,6 +53,6 @@ Plurielles.config({
   // Bloc qui contient tout le contenu Site Creator de la page (titre, blocs, pied de page),
   // masqué sur les pages dont le contenu vient du repo.
   // À récupérer avec l'inspecteur. Vide = rien n'est masqué.
-  siteContent: '#website'
+  siteContent: '#website, #scrollToTop'
 
 });
