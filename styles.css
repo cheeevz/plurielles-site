@@ -162,12 +162,12 @@ body.flo-home { background: #fff !important; }
 
 .flo-home-intro {
   min-height: 100vh;
-  padding: 96px 0 96px;       /* espace au-dessus du texte */
+  padding: 130px 0 96px;      /* espace au-dessus du texte */
   background: #fff;
 }
 .flo-home-col {
   margin-left: 47%;
-  width: 26%;                  /* largeur de la zone de texte */
+  width: 23%;                  /* largeur de la zone de texte */
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
   color: #111;
