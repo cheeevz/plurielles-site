@@ -510,6 +510,14 @@
       } else if (b.type === 'statement') {
         node = el('div', 'flo-b-statement');
         (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'links') {
+        node = el('div', 'flo-b-links');
+        (b.items || []).forEach(function (l) {
+          var a = el('a', null, l.label);
+          a.href = l.url;
+          if (/^https?:/.test(l.url)) { a.target = '_blank'; a.rel = 'noopener'; }
+          node.appendChild(a);
+        });
       } else if (b.type === 'split') {
         node = buildSplitBlock(b);
       } else if (b.type === 'collage') {

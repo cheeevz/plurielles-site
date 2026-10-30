@@ -684,6 +684,19 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-contact-page.flo-blocks .flo-contact-form { padding-top: 0; }
 
+/* Bloc « liens » : liens simples sous un texte */
+.flo-b-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin: 2em 0 0;
+  padding: 0 var(--flo-nav-side, 3vw);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(12px, 0.85vw, 15px);
+}
+.flo-b-links a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+.flo-b-links a:hover { opacity: 0.6; }
+
 /* Bloc « split » (À propos) : photo à gauche, texte à droite */
 .flo-b-split {
   display: grid;
