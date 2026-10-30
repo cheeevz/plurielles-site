@@ -443,6 +443,10 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   transform: translate(-50%, calc(-50% + var(--flo-logo-y, 0px)));
   z-index: 1;
 }
+/* Le logo n'occupant plus la colonne du milieu, on place les menus explicitement */
+.flo-left  { grid-column: 1; grid-row: 1; }
+.flo-right { grid-column: 3; grid-row: 1; }
+
 .flo-logo-subtitle {
   top: calc(var(--flo-nav-top, 40px) + 10px + var(--flo-sub-gap, 30px));
   transform: translate(-50%, -50%);
@@ -512,6 +516,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
     position: static;
     transform: none;
   }
+  .flo-left, .flo-right { grid-column: auto; grid-row: auto; }
   .flo-logo-subtitle {
     position: static;
     grid-row: 2;
