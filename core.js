@@ -370,6 +370,23 @@
     return box;
   }
 
+  // Bloc « collage » : photos entières placées librement (positions en % de la largeur d'écran)
+  function buildCollage(b) {
+    var box = el('div', 'flo-b-collage');
+    if (b.height) box.style.setProperty('--flo-collage-h', b.height);
+    (b.items || []).forEach(function (it) {
+      var img = el('img', 'flo-b-collage-img');
+      img.src = it.image;
+      img.alt = it.alt || '';
+      img.loading = 'lazy';
+      img.style.left = it.x + 'vw';
+      img.style.top = it.y + 'vw';
+      img.style.width = it.w + 'vw';
+      box.appendChild(img);
+    });
+    return box;
+  }
+
   // Bloc « image » : grande photo pleine largeur
   function buildWide(b) {
     var d = photo(b.image, 'flo-b-wide');
@@ -459,6 +476,8 @@
       } else if (b.type === 'statement') {
         node = el('div', 'flo-b-statement');
         (b.paragraphs || [b.text]).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'collage') {
+        node = buildCollage(b);
       } else if (b.type === 'image') {
         node = buildWide(b);
       } else if (b.type === 'prices') {

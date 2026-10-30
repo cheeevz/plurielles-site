@@ -652,6 +652,20 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-menu-list li { display: flex; align-items: baseline; gap: 8px; }
 
+/* Bloc « collage » (Projets) : photos entières placées librement */
+.flo-b-collage {
+  position: relative;
+  height: var(--flo-collage-h, 135vw);
+  margin-top: 1vw;
+}
+.flo-b-collage-img {
+  position: absolute;
+  display: block;
+  height: auto;
+  min-height: 60px;
+  background: #e6e6e6;
+}
+
 /* Bloc « image » : grande photo pleine largeur */
 .flo-b-wide {
   height: 33vw;
@@ -752,6 +766,8 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-menu { margin: 0 0 56px; width: 100%; padding: 40px 16px; }
   .flo-b-menu-list { max-width: none; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
+  .flo-b-collage { height: auto; columns: 2; column-gap: 10px; margin: 0 16px; }
+  .flo-b-collage-img { position: static; width: 100% !important; margin-bottom: 10px; break-inside: avoid; }
   .flo-b-video { left: 0; top: 0; width: 100%; }
   .flo-b-prices { margin: 0 16px 56px; width: auto; }
   .flo-b-prices-row { grid-template-columns: 1fr auto; column-gap: 12px; }
