@@ -448,6 +448,27 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   transform: translate(-50%, calc(-50% + var(--flo-logo-y, 0px)));
   z-index: 1;
 }
+/* Zone cliquable du logo limitée au mot « Plurielles »
+   (sinon toute l'image, marges transparentes comprises, est cliquable).
+   Ajuster --flo-logo-hit-w / --flo-logo-hit-h si la zone est trop petite ou trop grande. */
+.flo-logo {
+  pointer-events: none;
+  --flo-logo-hit-w: 230px;
+  --flo-logo-hit-h: 56px;
+}
+.flo-logo img { pointer-events: none; }
+.flo-logo::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--flo-logo-hit-w);
+  height: var(--flo-logo-hit-h);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 /* Le logo n'occupant plus la colonne du milieu, on place les menus explicitement */
 .flo-left  { grid-column: 1; grid-row: 1; }
 .flo-right { grid-column: 3; grid-row: 1; }
@@ -522,6 +543,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
     transform: none;
   }
   .flo-left, .flo-right { grid-column: auto; grid-row: auto; }
+  .flo-logo { --flo-logo-hit-w: 100%; --flo-logo-hit-h: 40px; }
   .flo-logo-subtitle {
     position: static;
     grid-row: 2;
