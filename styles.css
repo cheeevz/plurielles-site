@@ -486,6 +486,11 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
    - texte : Oswald, espacement 63, interligne 1.4, justifié
    ============================================================= */
 body.flo-plain { background: #fff !important; }
+/* Pages restées sur le contenu Site Creator (ex. Shop) : fond blanc aussi */
+body.flo-plain #website,
+body.flo-plain #website > *,
+body.flo-plain #contentArea,
+body.flo-plain #contentArea > section { background-color: #fff !important; }
 body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 
 .flo-blocks {

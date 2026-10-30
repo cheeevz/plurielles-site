@@ -586,6 +586,7 @@
       // Texture de fond sur toutes les pages sauf l'accueil
       if (!isHome && page && page.texture === false) {
         // page sur fond blanc uni, sans texture
+        document.body.classList.add('flo-plain');
       } else if (!isHome && config.texture && config.texture.image) {
         var t = config.texture;
         var veil = 1 - (t.opacity == null ? 1 : t.opacity);
