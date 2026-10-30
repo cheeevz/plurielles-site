@@ -611,7 +611,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-duo-script {
   position: absolute;
   left: 52%;
-  top: 16vw;
+  top: 17vw;                  /* « Let's » à cheval sur le bas de la grande photo */
   z-index: 2;
   font-family: 'Secular', 'Pinyon Script', cursive;
   font-size: 3.2vw;
