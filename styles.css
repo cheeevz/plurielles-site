@@ -660,16 +660,17 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 /* Page Contact, nouvelle maquette : titre, infos + enveloppe à gauche, formulaire à droite */
 .flo-contact-page.flo-blocks .flo-b-title { margin-bottom: 0.9em; }
 .flo-contact-page.flo-blocks .flo-contact {
-  /* deux moitiés égales ; le formulaire est centré dans la moitié droite */
-  grid-template-columns: 1fr 1fr;
+  /* texte + enveloppe et formulaire, centrés ensemble dans la page
+     (le titre « Contact » reste aligné à gauche) */
+  grid-template-columns: minmax(0, 600px) minmax(0, 720px);   /* largeurs max : gauche / formulaire */
+  justify-content: center;
   align-items: start;
-  gap: 4vw;
+  gap: 7vw;                   /* écart entre les deux colonnes */
   padding: 0 var(--flo-nav-side, 3vw);
 }
-.flo-contact-page.flo-blocks .flo-contact-left { max-width: 40vw; }
 .flo-contact-page.flo-blocks .flo-contact-form {
-  justify-self: center;
-  max-width: 560px;
+  justify-self: stretch;
+  max-width: none;
 }
 .flo-contact-page.flo-blocks .flo-contact-info {
   border: 0;
@@ -850,7 +851,6 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
   .flo-b-split { grid-template-columns: 1fr; row-gap: 32px; margin-top: 0; padding-right: 0; }
   .flo-contact-page.flo-blocks .flo-contact { grid-template-columns: 1fr; padding: 0 16px; }
-  .flo-contact-page.flo-blocks .flo-contact-left { max-width: none; }
   .flo-contact-page.flo-blocks .flo-contact-form { justify-self: stretch; max-width: none; }
   .flo-b-split-img { min-height: 0; aspect-ratio: 0.957; }
   .flo-b-split-text { padding: 0 16px; }
