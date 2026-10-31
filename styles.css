@@ -672,6 +672,8 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   justify-self: stretch;
   max-width: none;
 }
+/* bloc texte + enveloppe centré verticalement sur le formulaire */
+.flo-contact-page.flo-blocks .flo-contact-left { align-self: center; }
 .flo-contact-page.flo-blocks .flo-contact-info {
   border: 0;
   padding: 0;
@@ -851,6 +853,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
   .flo-b-split { grid-template-columns: 1fr; row-gap: 32px; margin-top: 0; padding-right: 0; }
   .flo-contact-page.flo-blocks .flo-contact { grid-template-columns: 1fr; padding: 0 16px; }
+  .flo-contact-page.flo-blocks .flo-contact-left { align-self: start; }
   .flo-contact-page.flo-blocks .flo-contact-form { justify-self: stretch; max-width: none; }
   .flo-b-split-img { min-height: 0; aspect-ratio: 0.957; }
   .flo-b-split-text { padding: 0 16px; }
