@@ -31,7 +31,7 @@ Plurielles.page({
 
     // Vidéo à gauche, textes à droite
     { type: 'duo',
-      video: 'https://COLLER-ICI-URL-VIDEO.mp4',
+      video: 'https://studioplurielles.fr/data/files/hommage/deuilmovie2.mov',
       // poster: 'https://...jpg',   // image affichée pendant le chargement de la vidéo
       // audio: 'https://...mp3',    // option : piste de chants d'oiseaux jouée à la place du son de la vidéo
       statement: [
