@@ -20,33 +20,25 @@ Plurielles.page({
       "Partagez-nous vos souvenirs, vos inspirations, votre palette couleur, une esthétique particulière, un tissu favori ; nous transformerons votre vision en créations florales sur-mesure !"
     ]},
 
-    // Frise : toutes les photos ont la même largeur ; on la fait défiler à l'horizontale.
+    // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
+    // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
     { type: 'strip', images: [
-      'https://COLLER-ICI-URL-PHOTO-01.jpg',
-      'https://COLLER-ICI-URL-PHOTO-02.jpg',
-      'https://COLLER-ICI-URL-PHOTO-03.jpg',
-      'https://COLLER-ICI-URL-PHOTO-04.jpg',
-      'https://COLLER-ICI-URL-PHOTO-05.jpg',
-      'https://COLLER-ICI-URL-PHOTO-06.jpg',
-      'https://COLLER-ICI-URL-PHOTO-07.jpg',
-      'https://COLLER-ICI-URL-PHOTO-08.jpg',
-      'https://COLLER-ICI-URL-PHOTO-09.jpg',
-      'https://COLLER-ICI-URL-PHOTO-10.jpg',
-      'https://COLLER-ICI-URL-PHOTO-11.jpg',
-      'https://COLLER-ICI-URL-PHOTO-12.jpg',
-      'https://COLLER-ICI-URL-PHOTO-13.jpg',
-      'https://COLLER-ICI-URL-PHOTO-14.jpg',
-      'https://COLLER-ICI-URL-PHOTO-15.jpg',
-      'https://COLLER-ICI-URL-PHOTO-16.jpg',
-      'https://COLLER-ICI-URL-PHOTO-17.jpg',
-      'https://COLLER-ICI-URL-PHOTO-18.jpg',
-      'https://COLLER-ICI-URL-PHOTO-19.jpg',
-      'https://COLLER-ICI-URL-PHOTO-20.jpg',
-      'https://COLLER-ICI-URL-PHOTO-21.jpg',
-      'https://COLLER-ICI-URL-PHOTO-22.jpg',
-      'https://COLLER-ICI-URL-PHOTO-23.jpg',
-      'https://COLLER-ICI-URL-PHOTO-24.jpg',
-      'https://COLLER-ICI-URL-PHOTO-25.jpg'
+      'https://studioplurielles.fr/data/files/mariage/mariage25-1024.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage21-1920.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage23-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage24-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage17-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage20-420.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage20-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage13-1600.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage7-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage9-1024.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage12-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage4-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage5-550.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage6-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage1-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage2-1024.png'
     ]},
 
     // Deux photos superposées + texte manuscrit à gauche, textes à droite
