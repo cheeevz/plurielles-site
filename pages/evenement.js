@@ -51,17 +51,17 @@ Plurielles.page({
 
     // Prestations. « col » place la carte dans une colonne précise (1 à 4).
     { type: 'services', items: [
-      { title: 'Événements', image: 'https://COLLER-ICI-URL-EVENEMENTS.jpg',
+      { title: 'Événements', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/mariage12-850.png',
         text: "Lancement de marque, dîners, vernissage, événement presse, cocktail et événement privés." },
-      { title: 'Tables et réceptions', image: 'https://COLLER-ICI-URL-TABLES.jpg',
+      { title: 'Tables et réceptions', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/domainecouharde32.png',
         text: "Scénographie florale et végétale, stylisme de table, buffet et d’espace de réception." },
-      { title: 'Image et éditorial', image: 'https://COLLER-ICI-URL-EDITORIAL.jpg',
+      { title: 'Image et éditorial', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/29.jpg',
         text: "Direction artistique florale et végétale pour shootings, campagnes de marque et productions éditoriales." },
-      { title: 'Installations', image: 'https://COLLER-ICI-URL-INSTALLATIONS.jpg',
+      { title: 'Installations', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/arche.png',
         text: "Installations florales et végétales éphémères, vitrines, décors sur-mesure et mise en scène d’espace." },
-      { title: 'Direction artistique', image: 'https://COLLER-ICI-URL-DIRECTION.jpg', col: 1,
+      { title: 'Direction artistique', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/eventpetitenappe.png', col: 1,
         text: "Recherche matière, textures, végétaux, contenants, en accord avec l’idée de chaque projet." },
-      { title: 'Ateliers et expériences', image: 'https://COLLER-ICI-URL-ATELIERS.jpg', col: 3,
+      { title: 'Ateliers et expériences', image: 'https://studioplurielles.fr/data/files/evenements/photos-pas-frise/eventpetitebouquet.png', col: 3,
         text: "Expériences créatives et interventions végétales pour les marques et les entreprises." }
     ]}
   ]
