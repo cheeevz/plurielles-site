@@ -499,6 +499,10 @@
       // Image de fond tournée (ex. 90°) : calque séparé, redimensionné pour couvrir la carte
       card = el('div', 'flo-b-menu flo-b-menu-rotated');
       var bg = photo(b.background, 'flo-b-menu-bg');
+      if (b.backgroundOpacity != null) {
+        bg.style.opacity = b.backgroundOpacity;   // image plus ou moins transparente
+        card.style.backgroundColor = '#fff';      // sur fond blanc
+      }
       card.appendChild(bg);
       var fit = function () {
         var W = card.offsetWidth, H = card.offsetHeight;

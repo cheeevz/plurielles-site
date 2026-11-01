@@ -64,6 +64,7 @@ Plurielles.page({
     { type: 'menu',
       background: 'https://studioplurielles.fr/data/files/mariage/scancopie.jpg',
       backgroundRotate: -90,      // rotation de l'image de fond (90, -90, 180…)
+      backgroundOpacity: 0.6,     // opacité de l'image de fond (1 = normale, 0 = invisible)
       title: 'Menu des prestations',
       items: [
         { label: 'Bouquet de mariée',                     price: 'à partir de 80 €' },
