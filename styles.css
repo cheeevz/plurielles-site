@@ -535,6 +535,14 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   user-select: none;
 }
 .flo-b-strip.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.flo-b-strip-photo {
+  flex: 0 0 auto;
+  display: block;
+  height: 100%;
+  width: auto;
+  scroll-snap-align: start;
+  background: #e6e6e6;
+}
 .flo-b-strip-img {
   flex: 0 0 auto;
   height: 100%;

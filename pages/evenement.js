@@ -20,25 +20,31 @@ Plurielles.page({
       "Nous concevons des créations florales inspirées de votre univers, de vos valeurs et du lieu. Chaque projet est pensé dans son ensemble afin de créer une expérience visuelle forte, cohérente et fidèle à votre identité."
     ]},
 
-    // Frise : toutes les photos ont la même largeur ; on la fait défiler à l'horizontale.
-    // Ajouter / retirer / réordonner des photos librement.
+    // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
+    // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
     { type: 'strip', images: [
-      'https://COLLER-ICI-URL-PHOTO-01.jpg',
-      'https://COLLER-ICI-URL-PHOTO-02.jpg',
-      'https://COLLER-ICI-URL-PHOTO-03.jpg',
-      'https://COLLER-ICI-URL-PHOTO-04.jpg',
-      'https://COLLER-ICI-URL-PHOTO-05.jpg',
-      'https://COLLER-ICI-URL-PHOTO-06.jpg',
-      'https://COLLER-ICI-URL-PHOTO-07.jpg',
-      'https://COLLER-ICI-URL-PHOTO-08.jpg',
-      'https://COLLER-ICI-URL-PHOTO-09.jpg',
-      'https://COLLER-ICI-URL-PHOTO-10.jpg',
-      'https://COLLER-ICI-URL-PHOTO-11.jpg',
-      'https://COLLER-ICI-URL-PHOTO-12.jpg',
-      'https://COLLER-ICI-URL-PHOTO-13.jpg',
-      'https://COLLER-ICI-URL-PHOTO-14.jpg',
-      'https://COLLER-ICI-URL-PHOTO-15.jpg',
-      'https://COLLER-ICI-URL-PHOTO-16.jpg'
+      'https://studioplurielles.fr/data/files/evenements/event13-700_1793553730.png',
+      'https://studioplurielles.fr/data/files/evenements/event14-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event-620_1793553730.png',
+      'https://studioplurielles.fr/data/files/evenements/event9-600.png',
+      'https://studioplurielles.fr/data/files/evenements/event10-860_1793553729.png',
+      'https://studioplurielles.fr/data/files/evenements/event10-620.png',
+      'https://studioplurielles.fr/data/files/evenements/event11-600.png',
+      'https://studioplurielles.fr/data/files/evenements/event2-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event3-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event6-600.png',
+      'https://studioplurielles.fr/data/files/evenements/event8-620.png',
+      'https://studioplurielles.fr/data/files/evenements/event12-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event13-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event15-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event8-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event10-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event11-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event4-700.png',
+      'https://studioplurielles.fr/data/files/evenements/event5-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event8-860.png',
+      'https://studioplurielles.fr/data/files/evenements/event-620.png'
     ]},
 
     { type: 'statement', text: "De la conception au sourcing, en passant par la création et la production des compositions, jusqu’à l’installation et la désinstallation, nous nous occupons du projet floral de A à Z." },

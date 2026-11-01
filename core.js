@@ -310,7 +310,20 @@
     var strip = el('div', 'flo-b-strip');
     if (b.height) strip.style.setProperty('--flo-strip-h', b.height);
     if (b.ratio) strip.style.setProperty('--flo-strip-ratio', b.ratio);
-    (b.images || []).forEach(function (url) { strip.appendChild(photo(url, 'flo-b-strip-img')); });
+    // Chaque photo garde ses proportions : même hauteur pour toutes, largeur propre à chacune.
+    // (Une URL encore « COLLER-ICI » s'affiche comme une case grise de largeur fixe.)
+    (b.images || []).forEach(function (url) {
+      if (!url || url.indexOf('COLLER-ICI') !== -1 || b.ratio) {
+        strip.appendChild(photo(url, 'flo-b-strip-img'));
+        return;
+      }
+      var img = el('img', 'flo-b-strip-photo');
+      img.src = url;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.draggable = false;
+      strip.appendChild(img);
+    });
 
     var down = false, startX = 0, startScroll = 0, moved = false;
     strip.addEventListener('mousedown', function (e) {
