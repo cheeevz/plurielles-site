@@ -44,8 +44,8 @@ Plurielles.page({
     // Deux photos superposées + texte manuscrit à gauche, textes à droite
     { type: 'duo',
       images: [
-        'https://COLLER-ICI-URL-PHOTO-GRANDE.jpg',   // grande photo (à gauche)
-        'https://COLLER-ICI-URL-PHOTO-PETITE.jpg'    // petite photo (à droite, plus bas)
+        'https://studioplurielles.fr/data/files/mariage/photos-pas-frise/capturedecran2026-05-26a13.05.22.png',   // grande photo (à gauche)
+        'https://studioplurielles.fr/data/files/mariage/photos-pas-frise/closeup.jpg'    // petite photo (à droite, plus bas)
       ],
       script: ['Let’s', 'get', 'married !'],
       // scriptImage: 'https://...png',   // option : image du texte manuscrit à la place
