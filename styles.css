@@ -2,13 +2,6 @@
    Plurielles — styles du site
    ============================================================= */
 
-/* Police du site (textes, titres, menu).
-   Helvetica Neue est installée sur les Mac et iPhone ; sur Windows/Android,
-   c'est Helvetica puis Arial qui s'affiche à la place. */
-:root {
-  --flo-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 /* Règle des couleurs du menu et du logo :
    - blanc sur les photos (accueil, bannières)
    - foncé sur les pages à fond clair (classe .flo-bar)
@@ -75,7 +68,7 @@
   padding: 0;
   display: flex;
   align-items: center;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   /* taille du menu : s'adapte à l'écran (16px sur grand écran, ~12px sur un MacBook) */
   font-size: clamp(12px, 0.8vw, 16px);
   font-weight: 400;
@@ -139,7 +132,7 @@
   transform: translateX(-50%);
   margin-top: -40px;
   white-space: nowrap;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: clamp(10px, 0.68vw, 13px);   /* taille de « Studio floral » */
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -176,7 +169,7 @@ body.flo-home { background: #fff !important; }
 .flo-home-col {
   margin-left: 47%;
   width: 23%;                  /* largeur de la zone de texte */
-  font-family: var(--flo-font);
+  font-family: 'Oswald', sans-serif;
   font-weight: 400;
   color: #111;
 }
@@ -211,7 +204,7 @@ body.flo-home { background: #fff !important; }
 }
 .flo-title span { display: block; }
 .flo-title-brand {
-  font-family: var(--flo-font);
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
   font-size: 36px;
   letter-spacing: 0.04em;
@@ -235,7 +228,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   max-width: 640px;
   margin: 0 auto;
   padding: 64px 16px 96px;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 13px;
   line-height: 1.6;
   color: #1f1f1f;
@@ -245,7 +238,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 .flo-menu-title {
   margin: 0 0 20px;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   text-transform: uppercase;
@@ -288,7 +281,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 }
 .flo-split-text {
   padding: 0 4vw 96px 0;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 13px;
   line-height: 1.55;
   color: #1f1f1f;
@@ -297,7 +290,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-section p { margin: 0 0 1.1em; }
 .flo-section-title {
   margin: 0 0 1.4em;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   text-transform: uppercase;
@@ -319,7 +312,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   border-top: 1px solid #1f1f1f;
   border-bottom: 1px solid #1f1f1f;
   padding: 16px 0 20px;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 12px;
   line-height: 1.5;
   color: #1f1f1f;
@@ -344,7 +337,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #fff;
   padding: 24px 32px 24px;
   box-sizing: border-box;
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 12px;
   color: #1f1f1f;
 }
@@ -376,7 +369,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 }
 .flo-contact-form:empty { display: none; }
 .flo-contact-form label {
-  font-family: var(--flo-font)!important;
+  font-family: 'DM Mono', monospace !important;
   font-size: 11px !important;
   letter-spacing: 0.08em;
   margin-bottom: 3px !important;
@@ -401,7 +394,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #fff !important;
   padding: 7px 10px !important;
   min-height: 0 !important;
-  font-family: var(--flo-font)!important;
+  font-family: 'DM Mono', monospace !important;
   font-size: 12px !important;
   box-shadow: none !important;
 }
@@ -413,7 +406,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #8c9a6c !important;
   color: #fff !important;
   padding: 10px !important;
-  font-family: var(--flo-font)!important;
+  font-family: 'DM Mono', monospace !important;
   font-size: 12px !important;
   letter-spacing: 0.2em;
   cursor: pointer;
@@ -433,7 +426,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: none;
   border: 0;
   color: var(--flo-text, #fff);
-  font-family: var(--flo-font);
+  font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -510,7 +503,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-title {
   margin: 0 0 1.6em;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
   font-size: clamp(22px, 1.94vw, 36px);
   letter-spacing: 0.103em;
@@ -521,7 +514,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-text {
   max-width: 60%;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: var(--flo-font);
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(13px, 1.06vw, 19px);
   letter-spacing: 0.063em;
   line-height: 1.4;
@@ -563,7 +556,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-statement {
   margin: 0 0 96px 47%;
   width: 30%;
-  font-family: var(--flo-font);
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(17px, 1.4vw, 26px);
   letter-spacing: 0.057em;
   line-height: 1.4;
@@ -582,12 +575,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-service-num {
   display: block;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
 }
 .flo-b-service-title {
   margin: 2px 0 8px;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.03em;
@@ -599,7 +592,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-service-text {
   margin-top: 6px !important;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
   line-height: 1.35;
 }
@@ -618,7 +611,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-small {
   margin-top: 1.8em;
   max-width: 78%;
-  font-family: var(--flo-font);
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(12.5px, 1.01vw, 19px);
   letter-spacing: 0.057em;
   line-height: 1.4;
@@ -661,12 +654,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   padding: 6.3vw 3.6vw 5vw;
   box-sizing: border-box;
   background: #eceae6 center / cover no-repeat;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   color: #111;
 }
 .flo-b-menu-title {
   margin: 0 0 2.4em;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   font-size: clamp(16px, 1.45vw, 28px);
   letter-spacing: 0.05em;
@@ -719,7 +712,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   gap: 0.6em;
   margin: 2em 0 0;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(12px, 0.85vw, 15px);
 }
 .flo-b-links a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
@@ -743,7 +736,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-split-section:last-child,
 .flo-b-split-section:last-child p:last-child { margin-bottom: 0; }
 .flo-b-split-text {
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(11.5px, 0.82vw, 15px);
   line-height: 1.4;
   text-align: justify;
@@ -753,7 +746,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-split-section.is-spaced { margin-top: 6em; }
 .flo-b-split-heading {
   margin: 0 0 1.4em;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: inherit;
   font-weight: 400;
   text-transform: uppercase;
@@ -806,7 +799,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   border: 0;
   background: rgba(0, 0, 0, 0.45);
   color: #fff;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -817,12 +810,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-prices {
   margin: 0 0 96px 6.6%;
   width: 58%;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   color: #111;
 }
 .flo-b-prices-title {
   margin: 0 0 1.8em;
-  font-family: var(--flo-font);
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
   font-style: italic;
   font-size: clamp(18px, 1.6vw, 30px);
