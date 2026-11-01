@@ -637,6 +637,15 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-duo-line3 { padding-left: 0.3em; }
 .flo-b-duo-script-img { width: 11vw; height: auto; }
 
+/* Fond tourné du bloc « menu » */
+.flo-b-menu-rotated { position: relative; overflow: hidden; }
+.flo-b-menu-bg {
+  position: absolute;
+  background: center / cover no-repeat;
+  z-index: 0;
+}
+.flo-b-menu-rotated > :not(.flo-b-menu-bg) { position: relative; z-index: 1; }
+
 /* Bloc « menu » : tarifs sur une image de fond */
 .flo-b-menu {
   margin: 0 0 96px 9.6%;

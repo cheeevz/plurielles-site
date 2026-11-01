@@ -494,7 +494,28 @@
 
   // Bloc « menu » : liste de tarifs posée sur une image de fond
   function buildMenuCard(b) {
-    var card = photo(b.background, 'flo-b-menu');
+    var card;
+    if (b.backgroundRotate) {
+      // Image de fond tournée (ex. 90°) : calque séparé, redimensionné pour couvrir la carte
+      card = el('div', 'flo-b-menu flo-b-menu-rotated');
+      var bg = photo(b.background, 'flo-b-menu-bg');
+      card.appendChild(bg);
+      var fit = function () {
+        var W = card.offsetWidth, H = card.offsetHeight;
+        var quarter = Math.abs(b.backgroundRotate) % 180 === 90;
+        var w = quarter ? H : W, h = quarter ? W : H;
+        bg.style.width = w + 'px';
+        bg.style.height = h + 'px';
+        bg.style.left = (W - w) / 2 + 'px';
+        bg.style.top = (H - h) / 2 + 'px';
+        bg.style.transform = 'rotate(' + b.backgroundRotate + 'deg)';
+      };
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(card);
+      window.addEventListener('load', fit);
+      setTimeout(fit, 0);
+    } else {
+      card = photo(b.background, 'flo-b-menu');
+    }
     if (b.title) card.appendChild(el('h2', 'flo-b-menu-title', b.title));
     var ul = el('ul', 'flo-b-menu-list');
     (b.items || []).forEach(function (it) {
