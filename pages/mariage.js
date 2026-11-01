@@ -23,22 +23,22 @@ Plurielles.page({
     // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
     // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
     { type: 'strip', images: [
-      'https://studioplurielles.fr/data/files/mariage/mariage25-1024.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage21-1920.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage23-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage24-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage17-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage20-420.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage20-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage13-1600.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage7-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage9-1024.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage12-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage1-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage2-1024.png',
       'https://studioplurielles.fr/data/files/mariage/mariage4-850.png',
       'https://studioplurielles.fr/data/files/mariage/mariage5-550.png',
       'https://studioplurielles.fr/data/files/mariage/mariage6-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage1-850.png',
-      'https://studioplurielles.fr/data/files/mariage/mariage2-1024.png'
+      'https://studioplurielles.fr/data/files/mariage/mariage7-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage9-1024.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage12-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage13-1600.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage17-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage20-420.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage20-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage21-1920.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage23-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage24-850.png',
+      'https://studioplurielles.fr/data/files/mariage/mariage25-1024.png'
     ]},
 
     // Deux photos superposées + texte manuscrit à gauche, textes à droite

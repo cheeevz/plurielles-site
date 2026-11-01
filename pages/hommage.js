@@ -66,15 +66,15 @@ Plurielles.page({
     // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
     // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
     { type: 'strip', images: [
+      'https://studioplurielles.fr/data/files/hommage/deuil1-500.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil2-1000.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil3-1500.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil4-750.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil6-1707.png',
       'https://studioplurielles.fr/data/files/hommage/deuil7-1750.png',
       'https://studioplurielles.fr/data/files/hommage/deuil8-450.png',
       'https://studioplurielles.fr/data/files/hommage/deuil9-960.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil10-500.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil6-1707.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil3-1500.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil4-750.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil1-500.png',
-      'https://studioplurielles.fr/data/files/hommage/deuil2-1000.png'
+      'https://studioplurielles.fr/data/files/hommage/deuil10-500.png'
     ]}
   ]
 });
