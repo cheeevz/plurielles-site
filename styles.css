@@ -69,14 +69,15 @@
   display: flex;
   align-items: center;
   font-family: 'DM Mono', monospace;
-  font-size: 16px;             /* taille du menu */
+  /* taille du menu : s'adapte à l'écran (16px sur grand écran, ~12px sur un MacBook) */
+  font-size: clamp(12px, 0.8vw, 16px);
   font-weight: 400;
   letter-spacing: 0.06em;
 }
 
 /* Écart entre les liens du menu */
-.flo-left  { justify-content: flex-start; gap: 40px; }
-.flo-right { justify-content: flex-end;   gap: 40px; }
+.flo-left  { justify-content: flex-start; gap: clamp(22px, 2.1vw, 40px); }
+.flo-right { justify-content: flex-end;   gap: clamp(22px, 2.1vw, 40px); }
 
 .flo-nav a {
   color: var(--flo-text, #fff);
@@ -132,7 +133,7 @@
   margin-top: -40px;
   white-space: nowrap;
   font-family: 'DM Mono', monospace;
-  font-size: 13px;             /* taille de « Studio floral » */
+  font-size: clamp(10px, 0.68vw, 13px);   /* taille de « Studio floral » */
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--flo-text, #fff);
@@ -453,8 +454,8 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
    Ajuster --flo-logo-hit-w / --flo-logo-hit-h si la zone est trop petite ou trop grande. */
 .flo-logo {
   pointer-events: none;
-  --flo-logo-hit-w: 230px;
-  --flo-logo-hit-h: 56px;
+  --flo-logo-hit-w: calc(var(--flo-logo-w, 500px) * 0.46);
+  --flo-logo-hit-h: calc(var(--flo-logo-w, 500px) * 0.112);
 }
 .flo-logo img { pointer-events: none; }
 .flo-logo::after {
