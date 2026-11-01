@@ -63,19 +63,18 @@ Plurielles.page({
       note: "Au-delà des compositions, nous imaginons des fleurissements d’ensemble, pensés comme de véritables mises en scène florales. Des installations et des décors qui viennent habiller les différents espaces de recueillement et accompagner chaque temps de la cérémonie (n’hésitez pas à nous en faire part dans le formulaire de contact)."
     },
 
-    // Frise : toutes les photos ont la même largeur ; on la fait défiler à l'horizontale.
+    // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
+    // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
     { type: 'strip', images: [
-      'https://COLLER-ICI-URL-PHOTO-01.jpg',
-      'https://COLLER-ICI-URL-PHOTO-02.jpg',
-      'https://COLLER-ICI-URL-PHOTO-03.jpg',
-      'https://COLLER-ICI-URL-PHOTO-04.jpg',
-      'https://COLLER-ICI-URL-PHOTO-05.jpg',
-      'https://COLLER-ICI-URL-PHOTO-06.jpg',
-      'https://COLLER-ICI-URL-PHOTO-07.jpg',
-      'https://COLLER-ICI-URL-PHOTO-08.jpg',
-      'https://COLLER-ICI-URL-PHOTO-09.jpg',
-      'https://COLLER-ICI-URL-PHOTO-10.jpg',
-      'https://COLLER-ICI-URL-PHOTO-11.jpg'
+      'https://studioplurielles.fr/data/files/hommage/deuil7-1750.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil8-450.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil9-960.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil10-500.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil6-1707.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil3-1500.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil4-750.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil1-500.png',
+      'https://studioplurielles.fr/data/files/hommage/deuil2-1000.png'
     ]}
   ]
 });
