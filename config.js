@@ -18,7 +18,7 @@ Plurielles.config({
     widthMobile: '130px',   // largeur sur mobile
     offset: 'calc(var(--flo-logo-w) * 0.016)',          // décalage vertical pour aligner « Plurielles » avec le menu
                             // (négatif = monte, positif = descend)
-    navTop: '30px'          // distance entre le haut de la page et le menu
+    navTop: '22px'          // distance entre le haut de la page et le menu
   },
 
   // Liens du menu : le href doit être l'adresse exacte de la page dans Site Creator
