@@ -983,9 +983,10 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   padding-bottom: 14px;
   /* fond de l'en-tête au défilement : la dernière valeur règle l'opacité
      (1 = blanc plein, 0 = transparent) */
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0);
+  /* flou derrière le menu : remettre ces deux lignes avec un fond semi-opaque
   -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); */
 }
 .flo-hero.flo-scrolled { --flo-text: #1f1f1f; }
 .flo-scrolled .flo-nav a,
