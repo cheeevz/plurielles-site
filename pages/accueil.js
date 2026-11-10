@@ -7,6 +7,9 @@
 Plurielles.page({
   fullscreen: true,
 
+  // Référencement : titre principal (invisible) et description des photos pour Google
+  seoTitle: 'Plurielles — studio floral à Paris',
+
   logoSubtitle: 'Studio floral',
   logoSubtitleGap: 'calc(var(--flo-logo-w) * 0.072)',   // écart entre le milieu de « Plurielles » et « Studio floral »
 
@@ -16,8 +19,10 @@ Plurielles.page({
   // zoom       : 1 = remplit le cadre ; plus grand = zoome ; plus petit = dézoome
   // background : couleur visible autour de la photo quand zoom < 1 (prendre celle du mur)
   images: [
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '30%', positionX: '50%', zoom: 1.9 },
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%', zoom: 1 }
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '30%', positionX: '50%', zoom: 1.9,
+      alt: 'Composition florale Plurielles, studio floral à Paris' },
+    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%', zoom: 1,
+      alt: 'Création florale du studio Plurielles à Paris' }
   ],
 
   // ----- Texte sous les photos -----

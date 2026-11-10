@@ -106,13 +106,11 @@
       hero.classList.add('flo-full');
       if (page.images && page.images.length) {
         hero.classList.add('flo-full-split');
-        page.images.forEach(function (im) {
+        page.images.forEach(function (im, i) {
           var cell = el('div', 'flo-full-img');
           if (im.background) cell.style.backgroundColor = im.background;
-          var pic = el('div', 'flo-full-img-pic');
           var focus = (im.positionX || '50%') + ' ' + (im.position || '50%');
-          pic.style.backgroundImage = "url('" + im.url + "')";
-          pic.style.backgroundPosition = focus;
+          var pic = photo(im.url, 'flo-full-img-pic', im.alt || altOf(page, i), focus, true);
           pic.style.transformOrigin = focus;
           pic.style.transform = 'scale(' + (im.zoom || 1) + ')';
           cell.appendChild(pic);
@@ -286,6 +284,8 @@
   function buildHome() {
     document.body.classList.add('flo-home');
     var section = el('section', 'flo-home-intro');
+    // Titre principal pour Google (invisible à l'écran : le logo fait office de titre)
+    section.appendChild(el('h1', 'flo-sr-only', page.seoTitle || 'Plurielles \u2014 studio floral \u00e0 Paris'));
     var col = el('div', 'flo-home-col');
     (page.statement || []).forEach(function (t) { col.appendChild(el('p', 'flo-home-statement', t)); });
     if (page.text && page.text.length) {
@@ -299,10 +299,34 @@
 
   // Mise en page « blocs » : une suite de blocs (titre, texte, frise, grand texte, prestations)
   // décrite dans le fichier de la page. Réutilisable pour toutes les nouvelles pages.
-  function photo(url, cls) {
+  // Photo recadrée dans un cadre : une vraie balise <img> (lisible par Google Images)
+  // qui remplit le cadre comme un fond « cover ». focus = cadrage (« 50% 30% »).
+  function photo(url, cls, alt, focus, eager) {
+    var d = el('div', cls + ' flo-ph');
+    if (url && url.indexOf('COLLER-ICI') === -1) {
+      var img = el('img', 'flo-ph-img');
+      img.src = url;
+      img.alt = alt || '';
+      if (!eager) img.loading = 'lazy';
+      img.draggable = false;
+      if (focus) img.style.objectPosition = focus;
+      d.appendChild(img);
+    }
+    return d;
+  }
+
+  // Image purement décorative (fond) : reste en image de fond CSS
+  function bgPhoto(url, cls) {
     var d = el('div', cls);
     if (url) d.style.backgroundImage = "url('" + url + "')";
     return d;
+  }
+
+  // Texte alternatif d'une photo (décrit l'image pour Google et les lecteurs d'écran) :
+  // alts[i] du bloc, sinon alt du bloc, sinon alt de la page, sinon texte par défaut.
+  function altOf(b, i, fallback) {
+    return (b && b.alts && b.alts[i]) || (b && b.alt) || fallback ||
+      (page && page.alt) || 'Cr\u00e9ation florale Plurielles, studio floral \u00e0 Paris';
   }
 
   // Frise : défilement horizontal à la molette/au pavé tactile, et par glisser à la souris
@@ -312,14 +336,14 @@
     if (b.ratio) strip.style.setProperty('--flo-strip-ratio', b.ratio);
     // Chaque photo garde ses proportions : même hauteur pour toutes, largeur propre à chacune.
     // (Une URL encore « COLLER-ICI » s'affiche comme une case grise de largeur fixe.)
-    (b.images || []).forEach(function (url) {
+    (b.images || []).forEach(function (url, i) {
       if (!url || url.indexOf('COLLER-ICI') !== -1 || b.ratio) {
-        strip.appendChild(photo(url, 'flo-b-strip-img'));
+        strip.appendChild(photo(url, 'flo-b-strip-img', altOf(b, i)));
         return;
       }
       var img = el('img', 'flo-b-strip-photo');
       img.src = url;
-      img.alt = '';
+      img.alt = altOf(b, i);
       img.loading = 'lazy';
       img.draggable = false;
       strip.appendChild(img);
@@ -349,7 +373,8 @@
       if (it.col) card.style.gridColumn = it.col;
       card.appendChild(el('span', 'flo-b-service-num', it.num || ('00' + (i + 1)).slice(-3)));
       card.appendChild(el('h3', 'flo-b-service-title', it.title));
-      card.appendChild(photo(it.image, 'flo-b-service-img'));
+      card.appendChild(photo(it.image, 'flo-b-service-img',
+        it.alt || (it.title + ' \u2014 Plurielles, studio floral \u00e0 Paris')));
       if (it.text) card.appendChild(el('p', 'flo-b-service-text', it.text));
       grid.appendChild(card);
     });
@@ -402,8 +427,8 @@
   // Bloc « split » (À propos) : grande photo collée au bord gauche, texte en sections à droite
   function buildSplitBlock(b) {
     var wrap = el('div', 'flo-b-split');
-    var ph = photo(b.image, 'flo-b-split-img');
-    ph.style.backgroundPosition = (b.positionX || '50%') + ' ' + (b.position || '50%');
+    var ph = photo(b.image, 'flo-b-split-img', altOf(b, 0),
+      (b.positionX || '50%') + ' ' + (b.position || '50%'));
     wrap.appendChild(ph);
     var col = el('div', 'flo-b-split-text');
     (b.sections || []).forEach(function (sec) {
@@ -424,7 +449,7 @@
     (b.items || []).forEach(function (it) {
       var img = el('img', 'flo-b-collage-img');
       img.src = it.image;
-      img.alt = it.alt || '';
+      img.alt = it.alt || altOf(b, 0);
       img.loading = 'lazy';
       img.style.left = it.x + 'vw';
       img.style.top = it.y + 'vw';
@@ -436,9 +461,9 @@
 
   // Bloc « image » : grande photo pleine largeur
   function buildWide(b) {
-    var d = photo(b.image, 'flo-b-wide');
+    var d = photo(b.image, 'flo-b-wide', altOf(b, 0),
+      (b.positionX || '50%') + ' ' + (b.position || '50%'));
     if (b.height) d.style.height = b.height;
-    d.style.backgroundPosition = (b.positionX || '50%') + ' ' + (b.position || '50%');
     return d;
   }
 
@@ -465,7 +490,7 @@
   function buildDuo(b) {
     var wrap = el('div', 'flo-b-duo');
     var art = el('div', 'flo-b-duo-art');
-    (b.images || []).forEach(function (url, i) { art.appendChild(photo(url, 'flo-b-duo-img flo-b-duo-img' + (i + 1))); });
+    (b.images || []).forEach(function (url, i) { art.appendChild(photo(url, 'flo-b-duo-img flo-b-duo-img' + (i + 1), altOf(b, i))); });
     if (b.video) art.appendChild(buildVideo(b));
     if (b.scriptImage) {
       var si = el('img', 'flo-b-duo-script flo-b-duo-script-img');
@@ -498,7 +523,7 @@
     if (b.backgroundRotate) {
       // Image de fond tournée (ex. 90°) : calque séparé, redimensionné pour couvrir la carte
       card = el('div', 'flo-b-menu flo-b-menu-rotated');
-      var bg = photo(b.background, 'flo-b-menu-bg');
+      var bg = bgPhoto(b.background, 'flo-b-menu-bg');
       if (b.backgroundOpacity != null) {
         bg.style.opacity = b.backgroundOpacity;   // image plus ou moins transparente
         card.style.backgroundColor = '#fff';      // sur fond blanc
@@ -518,7 +543,7 @@
       window.addEventListener('load', fit);
       setTimeout(fit, 0);
     } else {
-      card = photo(b.background, 'flo-b-menu');
+      card = bgPhoto(b.background, 'flo-b-menu');
     }
     if (b.title) card.appendChild(el('h2', 'flo-b-menu-title', b.title));
     var ul = el('ul', 'flo-b-menu-list');

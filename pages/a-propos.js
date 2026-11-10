@@ -18,6 +18,7 @@ Plurielles.page({
 
     { type: 'split',
       image: 'https://studioplurielles.fr/data/files/pluriellesunionretouchesok22.png',
+      alt: 'Création végétale de Plurielles, studio floral fondé par Claire Benoît et Pauline Delamotte à Paris',
       position: '50%',            // cadrage vertical   : 0% = haut, 100% = bas
       positionX: '50%',           // cadrage horizontal : 0% = gauche, 100% = droite
       sections: [

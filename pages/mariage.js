@@ -4,6 +4,8 @@
 */
 Plurielles.page({
   layout: 'blocks',
+  // Description des photos pour Google (par défaut pour toute la page)
+  alt: 'Fleurs de mariage par Plurielles, fleuriste mariage à Paris',
   texture: false,                 // fond blanc uni, sans texture
 
   header: {                       // en-tête blanc, menu foncé

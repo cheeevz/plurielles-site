@@ -4,6 +4,8 @@
 */
 Plurielles.page({
   layout: 'blocks',
+  // Description des photos pour Google (par défaut pour toute la page)
+  alt: 'Projet floral réalisé par Plurielles, studio floral à Paris',
   texture: false,                 // fond blanc uni, sans texture
 
   header: {                       // en-tête blanc, menu foncé
