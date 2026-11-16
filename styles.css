@@ -761,7 +761,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   padding-right: 2.2vw;
 }
 .flo-b-split-img {
-  min-height: 53.8vw;         /* photo presque carrée, comme sur la maquette (en voir plus) */
+  min-height: 42vw;           /* hauteur mini de la photo (plus haute si le texte est plus long) */
   background: #e6e6e6 center / cover no-repeat;
 }
 /* le bas de la photo s'aligne sur la dernière ligne du texte */
