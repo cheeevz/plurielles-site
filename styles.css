@@ -853,6 +853,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   font-size: clamp(18px, 1.55vw, 29px);   /* même style que les titres de page */
   letter-spacing: 0.103em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 .flo-b-prices-row {
   display: grid;
