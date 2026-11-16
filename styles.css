@@ -93,7 +93,7 @@
   padding: 0;
   display: flex;
   align-items: center;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   /* taille du menu : s'adapte à l'écran (16px sur grand écran, ~12px sur un MacBook) */
   font-size: clamp(12px, 0.8vw, 16px);
   font-weight: 400;
@@ -157,7 +157,7 @@
   transform: translateX(-50%);
   margin-top: -40px;
   white-space: nowrap;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: clamp(10px, 0.68vw, 13px);   /* taille de « Studio floral » */
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -194,25 +194,24 @@ body.flo-home { background: #fff !important; }
 .flo-home-col {
   margin-left: 47%;
   width: 23%;                  /* largeur de la zone de texte */
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   color: #111;
 }
 .flo-home-col p { margin: 0; }
-/* Typo d'après les réglages Canva : Oswald, espacement des lettres 57 (= 0.057em),
-   interligne 1.4 ; tailles dans le rapport 11,9 (majuscules) / 8,6 (minuscules) */
+/* Roboto Mono partout : tailles réduites par rapport à l'ancienne Oswald (police étroite) */
 .flo-home-statement {
-  font-size: clamp(17px, 1.4vw, 26px);
+  font-size: clamp(13px, 1.12vw, 21px);
   line-height: 1.4;
-  letter-spacing: 0.057em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 .flo-home-text {
   margin-top: 1.8em;
   max-width: 78%;
-  font-size: clamp(11.5px, 0.94vw, 17.5px);
+  font-size: clamp(11px, 0.86vw, 16px);
   line-height: 1.4;
-  letter-spacing: 0.057em;
+  letter-spacing: 0;
 }
 
 /* ---------- Titre des bannières ---------- */
@@ -229,13 +228,13 @@ body.flo-home { background: #fff !important; }
 }
 .flo-title span { display: block; }
 .flo-title-brand {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 600;
   font-size: 36px;
   letter-spacing: 0.04em;
 }
 .flo-title-page {
-  font-family: 'Gloock', serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   font-size: 34px;
   letter-spacing: 0.05em;
@@ -253,7 +252,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   max-width: 640px;
   margin: 0 auto;
   padding: 64px 16px 96px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
   line-height: 1.6;
   color: #1f1f1f;
@@ -263,7 +262,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 
 .flo-menu-title {
   margin: 0 0 20px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   text-transform: uppercase;
@@ -306,7 +305,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 }
 .flo-split-text {
   padding: 0 4vw 96px 0;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
   line-height: 1.55;
   color: #1f1f1f;
@@ -315,7 +314,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 .flo-section p { margin: 0 0 1.1em; }
 .flo-section-title {
   margin: 0 0 1.4em;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   text-transform: uppercase;
@@ -337,7 +336,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   border-top: 1px solid #1f1f1f;
   border-bottom: 1px solid #1f1f1f;
   padding: 16px 0 20px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   line-height: 1.5;
   color: #1f1f1f;
@@ -362,7 +361,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #fff;
   padding: 24px 32px 24px;
   box-sizing: border-box;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   color: #1f1f1f;
 }
@@ -394,7 +393,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
 }
 .flo-contact-form:empty { display: none; }
 .flo-contact-form label {
-  font-family: 'DM Mono', monospace !important;
+  font-family: 'Roboto Mono', monospace !important;
   font-size: 11px !important;
   letter-spacing: 0.08em;
   margin-bottom: 3px !important;
@@ -419,7 +418,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #fff !important;
   padding: 7px 10px !important;
   min-height: 0 !important;
-  font-family: 'DM Mono', monospace !important;
+  font-family: 'Roboto Mono', monospace !important;
   font-size: 12px !important;
   box-shadow: none !important;
 }
@@ -431,7 +430,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: #8c9a6c !important;
   color: #fff !important;
   padding: 10px !important;
-  font-family: 'DM Mono', monospace !important;
+  font-family: 'Roboto Mono', monospace !important;
   font-size: 12px !important;
   letter-spacing: 0.2em;
   cursor: pointer;
@@ -451,7 +450,7 @@ body.flo-textured .flo-hero.flo-bar { background-color: transparent !important; 
   background: none;
   border: 0;
   color: var(--flo-text, #fff);
-  font-family: 'DM Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -528,7 +527,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-title {
   margin: 0 0 1.6em;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
   font-size: clamp(18px, 1.55vw, 29px);
   letter-spacing: 0.103em;
@@ -538,9 +537,9 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-text {
   max-width: 60%;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(12px, 0.98vw, 17.5px);
-  letter-spacing: 0.063em;
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(12px, 1vw, 18px);
+  letter-spacing: 0;
   line-height: 1.4;
   text-align: justify;
 }
@@ -580,9 +579,9 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-statement {
   margin: 0 0 96px 47%;
   width: 30%;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(17px, 1.4vw, 26px);
-  letter-spacing: 0.057em;
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(13px, 1.12vw, 21px);
+  letter-spacing: 0.02em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -599,12 +598,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-service-num {
   display: block;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 12px;
 }
 .flo-b-service-title {
   margin: 2px 0 8px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.03em;
@@ -616,7 +615,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-service-text {
   margin-top: 6px !important;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 11.5px;
   line-height: 1.35;
 }
@@ -635,9 +634,9 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-small {
   margin-top: 1.8em;
   max-width: 78%;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(11.5px, 0.94vw, 17.5px);
-  letter-spacing: 0.057em;
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(11px, 0.86vw, 16px);
+  letter-spacing: 0;
   line-height: 1.4;
 }
 .flo-b-duo-art { position: absolute; inset: 0 auto 0 0; width: 47%; }
@@ -678,12 +677,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   padding: 6.3vw 3.6vw 5vw;
   box-sizing: border-box;
   background: #eceae6 center / cover no-repeat;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   color: #111;
 }
 .flo-b-menu-title {
   margin: 0 0 2.4em;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   font-size: clamp(16px, 1.45vw, 28px);
   letter-spacing: 0.05em;
@@ -736,7 +735,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   gap: 0.6em;
   margin: 2em 0 0;
   padding: 0 var(--flo-nav-side, 3vw);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: clamp(12px, 0.85vw, 15px);
 }
 .flo-b-links a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
@@ -745,8 +744,8 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 /* Bloc « split » (À propos) : photo à gauche, texte à droite */
 .flo-b-split {
   display: grid;
-  /* colonne de texte plus étroite (34 % de l'écran) */
-  grid-template-columns: 51.5% minmax(0, 34vw);
+  /* colonne de texte : 40 % de l'écran */
+  grid-template-columns: 51.5% minmax(0, 40vw);
   column-gap: 1.8vw;
   align-items: stretch;       /* la photo prend la hauteur du texte */
   margin-top: -18px;
@@ -760,8 +759,8 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-split-section:last-child,
 .flo-b-split-section:last-child p:last-child { margin-bottom: 0; }
 .flo-b-split-text {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: clamp(11.5px, 0.82vw, 15px);
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(12px, 1vw, 18px);
   line-height: 1.4;
   text-align: justify;
 }
@@ -770,13 +769,19 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-split-section.is-spaced { margin-top: 6em; }
 .flo-b-split-heading {
   margin: 0 0 1.4em;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: inherit;
   font-weight: 400;
   text-transform: uppercase;
   text-align: left;
 }
 .flo-b-split-heading.is-bold { font-weight: 700; }
+/* sous-titre en italique juste sous le nom (« Fondatrice & directrice artistique ») */
+.flo-b-split-subtitle {
+  margin: -1.4em 0 1.4em !important;
+  font-style: italic;
+  text-align: left;
+}
 .flo-b-split-section.is-heading-only { margin-bottom: 0; }
 
 /* Bloc « collage » (Projets) : photos entières placées librement */
@@ -823,7 +828,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   border: 0;
   background: rgba(0, 0, 0, 0.45);
   color: #fff;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -834,12 +839,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-b-prices {
   margin: 0 0 96px 6.6%;
   width: 58%;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   color: #111;
 }
 .flo-b-prices-title {
   margin: 0 0 1.8em;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
   font-size: clamp(18px, 1.55vw, 29px);   /* même style que les titres de page */
   letter-spacing: 0.103em;

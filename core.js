@@ -435,6 +435,7 @@
       var s = el('div', 'flo-b-split-section' + (sec.spaceBefore ? ' is-spaced' : '') +
         (sec.paragraphs && sec.paragraphs.length ? '' : ' is-heading-only'));
       if (sec.heading) s.appendChild(el('h2', 'flo-b-split-heading' + (sec.bold ? ' is-bold' : ''), sec.heading));
+      if (sec.subtitle) s.appendChild(el('p', 'flo-b-split-subtitle', sec.subtitle));
       (sec.paragraphs || []).forEach(function (t) { s.appendChild(para(t)); });
       col.appendChild(s);
     });
@@ -638,7 +639,7 @@
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
-  loadCss('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&family=Gloock&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,700&family=Oswald:wght@300;400&family=Pinyon+Script&display=swap');
+  loadCss('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Pinyon+Script&display=swap');
 
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
     .then(function (res) {
