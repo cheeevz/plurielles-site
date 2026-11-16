@@ -26,9 +26,9 @@ Plurielles.page({
   ],
 
   // ----- Texte sous les photos -----
-  // Grand texte en majuscules
+  // Grand texte (gras)
   statement: [
-    "Plurielles est un studio de création florale basé à Paris, qui envisage le végétal comme une matière vivante, à observer, transformer et réinventer.",
+    "Plurielles est un studio de création florale qui envisage le végétal comme une matière vivante, à observer, transformer et réinventer.",
     "Inspirées par les paysages et les arts visuels, nos créations mêlent le végétal à d’autres territoires créatifs, entre compositions florales, scénographie et direction artistique, pour les marques, les événements de la vie et les espaces."
   ],
 

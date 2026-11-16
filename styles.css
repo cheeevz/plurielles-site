@@ -192,27 +192,30 @@ body.flo-home { background: #fff !important; }
   background: #fff;
 }
 .flo-home-col {
-  margin-left: 47%;
-  width: 23%;                  /* largeur de la zone de texte */
+  margin-left: 46.6%;
+  width: 30%;                  /* largeur de la zone de texte */
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  color: #111;
+  color: #8a6d77;              /* vieux rose de la maquette */
 }
 .flo-home-col p { margin: 0; }
-/* Roboto Mono partout : tailles réduites par rapport à l'ancienne Oswald (police étroite) */
+/* Grand texte : Roboto Mono gras, casse normale */
 .flo-home-statement {
-  font-size: clamp(13px, 1.12vw, 21px);
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.flo-home-text {
-  margin-top: 1.8em;
-  max-width: 78%;
-  font-size: clamp(11px, 0.86vw, 16px);
-  line-height: 1.4;
+  font-size: clamp(14px, 1.55vw, 28px);
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: 0;
 }
+/* Petit texte : décalé vers la droite sous le grand texte */
+.flo-home-text {
+  margin-top: 1.9em;
+  margin-left: 22.7%;          /* décalage par rapport au grand texte */
+  max-width: 73%;
+  font-size: clamp(11px, 0.97vw, 17px);
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
 
 /* ---------- Titre des bannières ---------- */
 
@@ -952,7 +955,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 
   .flo-hero.flo-full-split { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
   .flo-home-col { margin: 0 16px; width: auto; }
-  .flo-home-text { max-width: none; }
+  .flo-home-text { max-width: none; margin-left: 0; }
   .flo-logo-subtitle { font-size: 10px; }
 
   .flo-title { left: 16px; bottom: 22px; }
