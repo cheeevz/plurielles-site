@@ -24,7 +24,7 @@ Plurielles.config({
   // Liens du menu : le href doit être l'adresse exacte de la page dans Site Creator
   menu: {
     left: [
-      { label: 'Événements', href: '/evenement' },
+      { label: 'Événement',  href: '/evenement' },
       { label: 'Mariage',   href: '/mariage' },
       { label: 'Hommage',   href: '/hommage' }
     ],

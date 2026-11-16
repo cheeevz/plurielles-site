@@ -15,7 +15,7 @@ Plurielles.page({
 
   blocks: [
 
-    { type: 'title', text: 'Hommages' },
+    { type: 'title', text: 'Hommage' },
 
     { type: 'text', paragraphs: [
       "Nous abordons les hommages floraux avec une approche libre et créative, en nous affranchissant des codes traditionnels du fleurissement de deuil.",

@@ -15,7 +15,7 @@ Plurielles.page({
 
   blocks: [
 
-    { type: 'title', text: 'Mariages' },
+    { type: 'title', text: 'Mariage' },
 
     { type: 'text', paragraphs: [
       "Célébrer votre union, c’est raconter votre histoire à deux. Nous nous inspirons de vos personnalités, de vos singularités et de vos goûts pour imaginer des créations qui vous ressemblent.",

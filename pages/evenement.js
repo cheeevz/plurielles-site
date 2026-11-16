@@ -15,7 +15,7 @@ Plurielles.page({
 
   blocks: [
 
-    { type: 'title', text: 'Événements' },
+    { type: 'title', text: 'Événement' },
 
     { type: 'text', paragraphs: [
       "Nous mettons le végétal au service de votre image et de vos événements, qu’ils soient intimistes ou de grande envergure.",
