@@ -196,7 +196,7 @@ body.flo-home { background: #fff !important; }
   width: 30%;                  /* largeur de la zone de texte */
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  color: #8a6d77;              /* vieux rose de la maquette */
+  color: var(--flo-accent, #93787b);   /* vieux rose de la maquette */
 }
 .flo-home-col p { margin: 0; }
 /* Grand texte : Roboto Mono gras, casse normale */
@@ -580,14 +580,16 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 
 /* Grand texte en majuscules (comme sur l'accueil) */
+/* Textes « secondaires » (même style que l'accueil) : gras, vieux rose */
 .flo-b-statement {
-  margin: 0 0 96px 47%;
+  margin: 0 0 96px 46.6%;
   width: 30%;
   font-family: 'Roboto Mono', monospace;
-  font-size: clamp(13px, 1.12vw, 21px);
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-  text-transform: uppercase;
+  font-size: clamp(14px, 1.55vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.15;
+  color: var(--flo-accent, #93787b);
 }
 
 /* Prestations : grille de 4 colonnes */
@@ -632,16 +634,19 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 }
 .flo-b-duo .flo-b-statement { margin: 0; width: auto; }
 .flo-b-duo-text {
-  margin-left: 47%;
+  margin-left: 46.6%;
   width: 30%;
 }
 .flo-b-small {
-  margin-top: 1.8em;
-  max-width: 78%;
+  margin-top: 1.9em;
+  margin-left: 22.7%;          /* décalé vers la droite, comme sur l'accueil */
+  max-width: 73%;
   font-family: 'Roboto Mono', monospace;
-  font-size: clamp(11px, 0.86vw, 16px);
+  font-size: clamp(11px, 0.97vw, 17px);
+  font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.4;
+  line-height: 1.3;
+  color: var(--flo-accent, #93787b);
 }
 .flo-b-duo-art { position: absolute; inset: 0 auto 0 0; width: 47%; }
 .flo-b-duo-img { position: absolute; background: #e6e6e6 center / cover no-repeat; }
@@ -899,7 +904,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-duo-img2 { left: 56%; top: 14vw; width: 28vw; }
   .flo-b-duo-script { left: 30%; top: 42vw; font-size: 10vw; }
   .flo-b-duo-text { margin: 24px 16px 0; width: auto; }
-  .flo-b-small { max-width: none; }
+  .flo-b-small { max-width: none; margin-left: 0; }
   .flo-b-menu { margin: 0 0 56px; width: 100%; padding: 40px 16px; }
   .flo-b-menu-list { max-width: none; }
   .flo-b-wide { height: 60vw; margin: 32px 0 56px; }
