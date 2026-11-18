@@ -636,6 +636,53 @@
     return content;
   }
 
+  /* ---------- Fenêtre des cookies (Site Creator) ---------- */
+  // Site Creator ne documente pas le code de sa fenêtre : on la repère par son nom
+  // (id ou classe contenant cookie / consent / gdpr / rgpd) et on lui ajoute la classe
+  // « flo-cookie », habillée dans styles.css aux couleurs et typos du site.
+  var COOKIE_RE = /cookie|consent|gdpr|rgpd/i;
+  function nameOf(n) {
+    return (n.id || '') + ' ' + (typeof n.className === 'string' ? n.className : '');
+  }
+  function findCookieBox() {
+    var all = document.body.querySelectorAll('div, section, aside, dialog, form');
+    for (var i = 0; i < all.length; i++) {
+      var n = all[i];
+      if (n.closest('.flo-hero, .flo-blocks, .flo-cookie')) continue;
+      if (!COOKIE_RE.test(nameOf(n))) continue;
+      // élément le plus extérieur : on ignore ceux dont un parent correspond aussi
+      var p = n.parentElement, inner = false;
+      while (p && p !== document.body) { if (COOKIE_RE.test(nameOf(p))) { inner = true; break; } p = p.parentElement; }
+      if (inner) continue;
+      var r = n.getBoundingClientRect();
+      if (!r.width || !r.height) continue;
+      return n;
+    }
+    return null;
+  }
+  function styleCookies() {
+    var box = findCookieBox();
+    if (!box) return false;
+    var r = box.getBoundingClientRect();
+    // Fond plein écran (voile) : on habille plutôt la boîte qu'il contient
+    if (r.width > window.innerWidth * 0.9 && r.height > window.innerHeight * 0.9) {
+      box.classList.add('flo-cookie-overlay');
+      var kids = box.querySelectorAll('div, section, form');
+      for (var i = 0; i < kids.length; i++) {
+        var k = kids[i].getBoundingClientRect();
+        if (k.width && k.height && k.width < window.innerWidth * 0.9) { kids[i].classList.add('flo-cookie'); return true; }
+      }
+    }
+    box.classList.add('flo-cookie');
+    return true;
+  }
+  function watchCookies() {
+    if (inEditor || styleCookies()) return;
+    var obs = new MutationObserver(function () { if (styleCookies()) obs.disconnect(); });
+    obs.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function () { obs.disconnect(); }, 15000);
+  }
+
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
@@ -648,6 +695,7 @@
         return;
       }
       if (document.querySelector('.flo-hero')) return;
+      watchCookies();
 
       if (config.themeHeader) {
         var hide = el('style');

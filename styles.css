@@ -1039,3 +1039,69 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-scrolled .flo-nav { --flo-nav-top: 12px; }
   .flo-hero.flo-bar { height: 80px; }
 }
+
+/* ---------- Fenêtre des cookies (Site Creator) ----------
+   Repérée automatiquement par core.js (classe flo-cookie) et habillée comme le site :
+   fond blanc, filet noir, Roboto Mono, boutons noirs façon menu. */
+.flo-cookie-overlay { background: rgba(255, 255, 255, 0.35) !important; }
+.flo-cookie {
+  background: #fff !important;
+  color: #1f1f1f !important;
+  border: 1px solid #1f1f1f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+.flo-cookie * {
+  font-family: 'Roboto Mono', monospace !important;
+  color: #1f1f1f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.flo-cookie div, .flo-cookie section, .flo-cookie p, .flo-cookie span, .flo-cookie label {
+  background-color: transparent !important;
+}
+.flo-cookie p, .flo-cookie span, .flo-cookie label, .flo-cookie li {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+.flo-cookie h1, .flo-cookie h2, .flo-cookie h3, .flo-cookie h4, .flo-cookie strong, .flo-cookie b {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+}
+.flo-cookie a { text-decoration: underline !important; text-underline-offset: 3px; }
+.flo-cookie a:hover { opacity: 0.6; }
+.flo-cookie button,
+.flo-cookie .btn,
+.flo-cookie [role="button"],
+.flo-cookie input[type="button"],
+.flo-cookie input[type="submit"] {
+  background: #fff !important;
+  color: #1f1f1f !important;
+  border: 1px solid #1f1f1f !important;
+  padding: 10px 18px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+/* bouton principal (le dernier, souvent « Accepter ») en noir plein */
+.flo-cookie button:last-of-type,
+.flo-cookie button:hover,
+.flo-cookie .btn:hover,
+.flo-cookie [role="button"]:hover {
+  background: #1f1f1f !important;
+  color: #fff !important;
+}
+.flo-cookie button:last-of-type:hover { background: #fff !important; color: #1f1f1f !important; }
+.flo-cookie button *, .flo-cookie button:last-of-type * { color: inherit !important; }
+.flo-cookie input[type="checkbox"] { accent-color: #1f1f1f; }
