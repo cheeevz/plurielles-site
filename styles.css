@@ -1236,3 +1236,21 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-split-text { position: relative; z-index: 1; padding: 0 16px 56px; font-size: 12px; }
   .flo-b-split-section.is-spaced { margin-top: 2.5em; }
 }
+
+/* Prestations : photos toujours alignées sur une même ligne, même quand un titre
+   passe sur deux lignes (ex. « Ateliers et expériences ») — chaque carte partage
+   les rangées de la grille (numéro / titre / photo / texte) avec ses voisines. */
+@supports (grid-template-rows: subgrid) {
+  .flo-b-services { row-gap: 0; }
+  .flo-b-service {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    align-content: start;
+  }
+  .flo-b-service-title { align-self: end; }
+  .flo-b-service-text { align-self: start; margin-bottom: 48px !important; }
+  @media (max-width: 860px) {
+    .flo-b-service-text { margin-bottom: 32px !important; }
+  }
+}
