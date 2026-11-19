@@ -1105,3 +1105,134 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
 .flo-cookie button:last-of-type:hover { background: #fff !important; color: #1f1f1f !important; }
 .flo-cookie button *, .flo-cookie button:last-of-type * { color: inherit !important; }
 .flo-cookie input[type="checkbox"] { accent-color: #1f1f1f; }
+
+/* =============================================================
+   MOBILE (refonte) — écrans de moins de 860 px
+   Placé en fin de fichier : remplace les anciens réglages mobiles.
+   ============================================================= */
+@media (max-width: 860px) {
+
+  /* ----- En-tête : hauteur fixe, logo fixé au centre (ne bouge plus) ----- */
+  .flo-nav,
+  .flo-bar .flo-nav,
+  .flo-scrolled .flo-nav {
+    display: block;
+    height: 64px;
+    padding: 0 !important;
+    background: transparent;
+  }
+  .flo-logo {
+    position: absolute !important;
+    left: 50%;
+    top: 32px;
+    width: var(--flo-logo-w-m, 62vw);
+    transform: translate(-50%, -50%) !important;
+    transition: none;
+    --flo-logo-hit-w: 46%;
+    --flo-logo-hit-h: 40px;
+  }
+  .flo-logo-subtitle {
+    position: absolute !important;
+    left: 50%;
+    top: calc(32px + var(--flo-logo-w-m, 62vw) * 0.072);
+    transform: translate(-50%, -50%) !important;
+    margin: 0;
+    font-size: 9px;
+  }
+  .flo-burger {
+    display: block;
+    position: fixed;
+    top: 32px;
+    right: 16px;
+    transform: translateY(-50%);
+    padding: 8px 0;
+    font-size: 11px;
+  }
+  .flo-hero.flo-bar { height: 64px; }
+  /* au défilement : léger fond blanc pour que le logo reste lisible sur le texte */
+  .flo-scrolled .flo-nav { background: rgba(255, 255, 255, 0.85); }
+  .flo-scrolled .flo-logo-subtitle { opacity: 0; }
+
+  /* ----- Menu ouvert : même rendu qu'avant (voile sombre sous le logo), logo immobile ----- */
+  .flo-nav ul { display: none; }
+  .flo-hero.is-open .flo-nav {
+    height: auto;
+    padding: 84px 0 28px !important;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  /* pages blanches : voile blanc au lieu de gris, pour que le menu reste lisible sur le texte */
+  .flo-hero.flo-dark.is-open .flo-nav { background: rgba(255, 255, 255, 0.94); }
+  .flo-hero.is-open .flo-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+  }
+
+  /* ----- Accueil : les deux photos côte à côte, texte dessous ----- */
+  .flo-hero.flo-full { height: 66vh; height: 66svh; min-height: 0; }
+  .flo-hero.flo-full-split { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+  .flo-full-img-pic { transform: none !important; }
+  .flo-home-intro { min-height: 0; padding: 44px 0 72px; }
+  .flo-home-col { margin: 0 24px; width: auto; }
+  .flo-home-statement { font-size: 15px; line-height: 1.3; }
+  .flo-home-text { margin: 2em 0 0 18%; max-width: none; font-size: 12px; }
+
+  /* ----- Pages en blocs : marges et tailles ----- */
+  .flo-blocks { padding-top: 28px; }
+  .flo-b-title { padding: 0 16px; margin-bottom: 1.1em; font-size: 18px; }
+  .flo-b-text { padding: 0 16px; max-width: none; font-size: 12px; }
+  .flo-b-statement { margin: 0 24px 56px; width: auto; font-size: 15px; line-height: 1.3; }
+  .flo-b-small { margin: 2em 0 0 18%; max-width: none; font-size: 12px; }
+
+  /* Frises : grille de photos sur 2 colonnes, dans l'ordre (au lieu du défilement horizontal) */
+  .flo-b-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    height: auto;
+    margin: 28px 0 56px;
+    overflow: visible;
+    cursor: auto;
+    scroll-snap-type: none;
+  }
+  .flo-b-strip-photo,
+  .flo-b-strip-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.78;          /* toutes les cases de la même taille, photos recadrées */
+    object-fit: cover;
+  }
+
+  /* Prestations : 2 colonnes */
+  .flo-b-services { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; row-gap: 32px; margin: 0 16px; }
+  .flo-b-service { grid-column: auto !important; }
+
+  /* Bloc duo (Mariage, Hommage) : visuel puis textes */
+  .flo-b-duo { min-height: 0; margin-bottom: 56px; }
+  .flo-b-duo-text { margin: 28px 0 0; width: auto; }
+  .flo-b-duo .flo-b-statement { margin: 0 24px; }
+
+  /* ----- À propos : photo en fond, estompée, texte par-dessus ----- */
+  .flo-b-split {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .flo-b-split-img {
+    position: absolute !important;
+    inset: -120px 0 0 0;          /* remonte sous le titre et l'en-tête */
+    min-height: 0;
+    aspect-ratio: auto;
+    opacity: 0.32;
+    z-index: 0;
+  }
+  .flo-b-split-text { position: relative; z-index: 1; padding: 0 16px 56px; font-size: 12px; }
+  .flo-b-split-section.is-spaced { margin-top: 2.5em; }
+}
