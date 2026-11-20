@@ -337,6 +337,10 @@
     // Chaque photo garde ses proportions : même hauteur pour toutes, largeur propre à chacune.
     // (Une URL encore « COLLER-ICI » s'affiche comme une case grise de largeur fixe.)
     (b.images || []).forEach(function (url, i) {
+      // Une photo peut s'écrire { url: '...', mobilePosition: '50% 70%' } pour régler
+      // son cadrage dans la grille mobile (0% = haut, 100% = bas pour la 2e valeur)
+      var pos = null;
+      if (url && typeof url === 'object') { pos = url.mobilePosition; url = url.url; }
       if (!url || url.indexOf('COLLER-ICI') !== -1 || b.ratio) {
         strip.appendChild(photo(url, 'flo-b-strip-img', altOf(b, i)));
         return;
@@ -346,6 +350,7 @@
       img.alt = altOf(b, i);
       img.loading = 'lazy';
       img.draggable = false;
+      if (pos) img.style.setProperty('--flo-m-pos', pos);
       strip.appendChild(img);
     });
 

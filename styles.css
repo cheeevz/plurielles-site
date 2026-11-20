@@ -1207,6 +1207,7 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
     height: auto;
     aspect-ratio: 0.78;          /* toutes les cases de la même taille, photos recadrées */
     object-fit: cover;
+    object-position: var(--flo-m-pos, 50% 50%);
   }
 
   /* Prestations : 2 colonnes */
@@ -1262,4 +1263,20 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-desk-only { display: none !important; }
   .flo-b-strip.flo-mob-only { display: grid !important; }
   .flo-b-strip-tail { margin-top: 0; }
+}
+
+/* Mobile : plus d'espace vertical entre les blocs (titres, textes, photos) */
+@media (max-width: 860px) {
+  .flo-blocks { padding-top: 44px; }
+  .flo-b-title { margin-bottom: 32px; }
+  .flo-b-strip { margin: 44px 0 72px; }
+  .flo-b-statement { margin-bottom: 72px; }
+  .flo-b-duo { margin-bottom: 72px; }
+  .flo-b-duo-text { margin-top: 40px; }
+  .flo-b-menu { margin-bottom: 72px; }
+  .flo-b-wide { margin: 44px 0 72px; }
+  .flo-b-prices { margin-bottom: 72px; }
+  .flo-b-services { margin-bottom: 0; }
+  .flo-b-strip-tail { margin-top: 64px; }   /* espace entre les prestations / le menu et les photos du bas */
+  .flo-b-menu + .flo-b-strip-tail { margin-top: 0; }
 }
