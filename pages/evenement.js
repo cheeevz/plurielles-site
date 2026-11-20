@@ -28,7 +28,7 @@ Plurielles.page({
     // passent en bas de page (sur ordinateur, la frise reste complète)
     { type: 'strip', mobileSplit: 2, images: [
       { url: 'https://studioplurielles.fr/data/files/evenements/event-620_1793553730.png',
-        mobilePosition: '50% 75%' },   // cadrage sur mobile : 2e valeur plus grande = on voit plus le bas
+        mobilePosition: '50% 100%' },   // cadrage sur mobile : 2e valeur plus grande = on voit plus le bas
       'https://studioplurielles.fr/data/files/evenements/event-860.png',
       'https://studioplurielles.fr/data/files/evenements/event-620.png',
       'https://studioplurielles.fr/data/files/evenements/event2-700.png',
