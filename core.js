@@ -562,6 +562,7 @@
   function buildBlocks() {
     document.body.classList.add('flo-has-content', 'flo-plain');
     var wrap = el('section', 'flo-blocks');
+    var mobileTail = [];   // frises dont la fin est renvoyée en bas de page sur mobile
     (page.blocks || []).forEach(function (b) {
       var node;
       if (b.type === 'title') {
@@ -569,6 +570,19 @@
       } else if (b.type === 'text') {
         node = el('div', 'flo-b-text');
         (b.paragraphs || []).forEach(function (t) { node.appendChild(el('p', null, t)); });
+      } else if (b.type === 'strip' && b.mobileSplit && (b.images || []).length > b.mobileSplit) {
+        // Sur mobile : seules les « mobileSplit » premières photos restent ici,
+        // les autres sont affichées en bas de la page. Sur ordinateur : frise complète.
+        var n = b.mobileSplit;
+        var full = buildStrip(b);
+        full.classList.add('flo-desk-only');
+        wrap.appendChild(full);
+        var head = buildStrip(Object.assign({}, b, { images: b.images.slice(0, n), alts: b.alts && b.alts.slice(0, n) }));
+        head.classList.add('flo-mob-only');
+        node = head;
+        var tail = buildStrip(Object.assign({}, b, { images: b.images.slice(n), alts: b.alts && b.alts.slice(n) }));
+        tail.classList.add('flo-mob-only', 'flo-b-strip-tail');
+        mobileTail.push(tail);
       } else if (b.type === 'strip') {
         node = buildStrip(b);
       } else if (b.type === 'statement') {
@@ -599,6 +613,7 @@
       }
       if (node) wrap.appendChild(node);
     });
+    mobileTail.forEach(function (t) { wrap.appendChild(t); });
     return wrap;
   }
 

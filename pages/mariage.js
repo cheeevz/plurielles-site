@@ -24,7 +24,9 @@ Plurielles.page({
 
     // Frise : toutes les photos ont la même hauteur et gardent leur largeur propre ;
     // on la fait défiler à l'horizontale. Ajouter / retirer / réordonner librement.
-    { type: 'strip', images: [
+    // mobileSplit : sur téléphone, seules les 2 premières photos restent ici, les autres
+    // passent en bas de page (sur ordinateur, la frise reste complète)
+    { type: 'strip', mobileSplit: 2, images: [
       'https://studioplurielles.fr/data/files/mariage/mariage1-850.png',
       'https://studioplurielles.fr/data/files/mariage/mariage2-1024.png',
       'https://studioplurielles.fr/data/files/mariage/mariage4-850.png',

@@ -1254,3 +1254,12 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
     .flo-b-service-text { margin-bottom: 32px !important; }
   }
 }
+
+/* Frise coupée sur mobile (option « mobileSplit » dans la page) :
+   frise complète sur ordinateur, 2 photos en haut + le reste en bas de page sur mobile */
+.flo-mob-only { display: none !important; }
+@media (max-width: 860px) {
+  .flo-desk-only { display: none !important; }
+  .flo-b-strip.flo-mob-only { display: grid !important; }
+  .flo-b-strip-tail { margin-top: 0; }
+}
