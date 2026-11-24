@@ -20,6 +20,8 @@ Plurielles.page({
     textColor: '#1f1f1f'
   },
 
-  // Pas de titre ici : la page Site Creator affiche déjà le sien (« SHOP »)
-  blocks: []
+  // Titre d'ici, comme sur les autres pages (celui de Site Creator est masqué)
+  blocks: [
+    { type: 'title', text: 'Shop' }
+  ]
 });

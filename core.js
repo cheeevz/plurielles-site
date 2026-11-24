@@ -760,6 +760,8 @@
             p.classList.add('flo-shop-row');
             a.classList.add('flo-shop-grid');
             c.classList.add('flo-shop-cats');
+            // on retire l'espace au-dessus des produits (remontés sous le titre)
+            for (var u = p; u && u !== site; u = u.parentElement) u.classList.add('flo-shop-up');
             return;
           }
         }

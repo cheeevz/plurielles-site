@@ -1365,7 +1365,13 @@ body.flo-shop-sub #website li { font-size: clamp(12px, 0.9vw, 15px) !important; 
 body.flo-shop #website h1 { font-size: clamp(18px, 1.55vw, 29px) !important; letter-spacing: 0.103em !important; }
 
 /* Boutique — mise en raccord avec le reste du site */
-body.flo-shop .flo-blocks { display: none; }                 /* bloc vide d'ici */
+/* titre « SHOP » d'ici (même place et même style que sur les autres pages) ;
+   le titre de Site Creator est masqué. Sur les fiches produit : pas de titre d'ici. */
+body.flo-shop .flo-blocks { padding-bottom: 0; }
+body.flo-shop-sub .flo-blocks { display: none; }
+body.flo-shop:not(.flo-shop-sub) .flo-site-head { display: none !important; }
+/* bloc des produits remonté juste sous le titre (comme le texte sous les autres titres) */
+body.flo-shop .flo-shop-up { padding-top: 0 !important; margin-top: 0 !important; }
 body.flo-shop #scrollToTop { display: none !important; }     /* flèche « remonter » de Site Creator */
 /* bandeau du titre : sans grand espace ni filet, titre comme sur les autres pages */
 body.flo-shop .flo-site-head {
