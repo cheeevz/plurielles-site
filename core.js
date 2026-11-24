@@ -760,6 +760,32 @@
     })();
   }
 
+  /* ---------- Boutique : masquer les vignettes de catégories sous « Montrer tous les produits » ----------
+     On repère le bouton par son texte, puis on masque ce qui le suit sans prix (€) :
+     ce sont les vignettes de catégories (ex. « Couronnes » avec une image vide). */
+  function shopHideCategoryTiles() {
+    var tries = 0;
+    (function attempt() {
+      var site = document.getElementById('website');
+      var btn = null;
+      if (site) {
+        var cands = site.querySelectorAll('a, button, span, div');
+        for (var i = 0; i < cands.length; i++) {
+          if (/^\s*montrer tous les produits\s*$/i.test(cands[i].textContent)) { btn = cands[i]; break; }
+        }
+      }
+      if (!btn) { if (tries++ < 40) setTimeout(attempt, 250); return; }
+      for (var a = btn; a && a !== site; a = a.parentElement) {
+        var n = a.nextElementSibling, hid = false;
+        while (n) {
+          if (n.querySelector('img') && n.textContent.indexOf('€') === -1) { n.classList.add('flo-hidden'); hid = true; }
+          n = n.nextElementSibling;
+        }
+        if (hid) return;
+      }
+    })();
+  }
+
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
@@ -832,6 +858,7 @@
       if (page && page.shopSubpage) document.body.classList.add('flo-shop-sub');
       if (page && page.tidySiteTitle && !page.shopSubpage) tidySiteTitle();
       if (page && page.shopCategoriesOnTop) shopCategoriesOnTop();
+      if (page && page.shopHideCategoryTiles) shopHideCategoryTiles();
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 

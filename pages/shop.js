@@ -13,6 +13,7 @@ Plurielles.page({
   bodyClass: 'flo-shop',          // active l'habillage de la boutique dans styles.css
   tidySiteTitle: true,            // remet le titre « SHOP » de Site Creator au style du site
   shopCategoriesOnTop: true,      // liste des catégories (« Couronnes ») au-dessus des photos, à gauche
+  shopHideCategoryTiles: true,    // masque les vignettes de catégories sous « Montrer tous les produits »
 
   header: {                       // en-tête blanc, menu foncé
     background: '#ffffff',

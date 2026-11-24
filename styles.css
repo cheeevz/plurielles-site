@@ -1433,3 +1433,4 @@ body.flo-shop .flo-shop-cats li {
   text-decoration: none;
 }
 body.flo-shop .flo-shop-cats a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.flo-hidden { display: none !important; }
