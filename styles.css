@@ -1348,3 +1348,12 @@ body.flo-shop #website [class*="card"],
 body.flo-shop #website [class*="Card"],
 body.flo-shop #website [class*="product"],
 body.flo-shop #website [class*="Product"] { border-radius: 0 !important; box-shadow: none !important; }
+
+/* Boutique : on cache les éléments par défaut de Site Creator qui ne servent pas
+   (fil d'Ariane au-dessus du titre, pied de page d'exemple « L'entreprise… ») */
+body.flo-shop #website footer,
+body.flo-shop #website [id*="footer" i],
+body.flo-shop #website [class*="footer" i],
+body.flo-shop #website [class*="breadcrumb" i],
+body.flo-shop #website [id*="breadcrumb" i] { display: none !important; }
+body.flo-shop #website h1 { font-size: clamp(18px, 1.55vw, 29px) !important; letter-spacing: 0.103em !important; }

@@ -17,7 +17,6 @@ Plurielles.page({
     textColor: '#1f1f1f'
   },
 
-  blocks: [
-    { type: 'title', text: 'Shop' }
-  ]
+  // Pas de titre ici : la page Site Creator affiche déjà le sien (« SHOP »)
+  blocks: []
 });
