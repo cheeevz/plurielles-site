@@ -754,6 +754,7 @@
       window.addEventListener('resize', onScroll);
       onScroll();
 
+      if (page && page.bodyClass) document.body.classList.add(page.bodyClass);
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 

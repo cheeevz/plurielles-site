@@ -1280,3 +1280,71 @@ body.flo-plain .flo-hero.flo-bar { background-color: #fff !important; }
   .flo-b-strip-tail { margin-top: 64px; }   /* espace entre les prestations / le menu et les photos du bas */
   .flo-b-menu + .flo-b-strip-tail { margin-top: 0; }
 }
+
+/* =============================================================
+   Boutique (page Shop, module Site Creator) — habillage aux couleurs du site
+   Le code du module n'est pas documenté : règles volontairement générales.
+   Les icônes (panier, flèches…) sont épargnées pour ne pas casser leur police.
+   ============================================================= */
+body.flo-shop .flo-blocks { padding-bottom: 8px; }
+body.flo-shop #website :not(i):not([class*="icon"]):not([class*="fa-"]):not([class*="glyph"]) {
+  font-family: 'Roboto Mono', monospace !important;
+  letter-spacing: 0;
+}
+body.flo-shop #website { color: #1f1f1f; }
+body.flo-shop #website h1,
+body.flo-shop #website h2,
+body.flo-shop #website h3,
+body.flo-shop #website h4 {
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  color: #1f1f1f !important;
+}
+body.flo-shop #website a { color: #1f1f1f; }
+/* boutons : noirs, angles droits, petites majuscules (comme le menu) */
+body.flo-shop #website button,
+body.flo-shop #website .btn,
+body.flo-shop #website .button,
+body.flo-shop #website [class*="Button"],
+body.flo-shop #website input[type="submit"],
+body.flo-shop #website input[type="button"] {
+  background: #1f1f1f !important;
+  color: #fff !important;
+  border: 1px solid #1f1f1f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+body.flo-shop #website button:hover,
+body.flo-shop #website .btn:hover,
+body.flo-shop #website .button:hover,
+body.flo-shop #website [class*="Button"]:hover,
+body.flo-shop #website input[type="submit"]:hover,
+body.flo-shop #website input[type="button"]:hover {
+  background: #fff !important;
+  color: #1f1f1f !important;
+}
+body.flo-shop #website button *, body.flo-shop #website .btn * { color: inherit !important; }
+/* champs (quantité, variantes, formulaire de commande) */
+body.flo-shop #website input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+body.flo-shop #website select,
+body.flo-shop #website textarea {
+  border: 1px solid #1f1f1f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+  font-size: 12px !important;
+}
+body.flo-shop #website input[type="checkbox"],
+body.flo-shop #website input[type="radio"] { accent-color: #1f1f1f; }
+/* vignettes produits : angles droits, pas d'ombre */
+body.flo-shop #website img { border-radius: 0 !important; }
+body.flo-shop #website [class*="card"],
+body.flo-shop #website [class*="Card"],
+body.flo-shop #website [class*="product"],
+body.flo-shop #website [class*="Product"] { border-radius: 0 !important; box-shadow: none !important; }
