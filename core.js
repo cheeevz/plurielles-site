@@ -127,8 +127,22 @@
           hero.appendChild(cell);
         });
       } else {
-        hero.style.backgroundImage = "url('" + page.image + "')";
-        hero.style.backgroundPosition = 'center ' + (page.position || '50%');
+        // Une seule photo plein écran (balise <img> pour Google), cadrage desktop / mobile
+        var bgCell = el('div', 'flo-hero-bg');
+        var bgImg = photo(page.image, 'flo-hero-bg-pic', page.imageAlt || altOf(page, 0),
+          (page.positionX || '50%') + ' ' + (page.position || '50%'), true);
+        if (page.positionMobile) bgImg.style.setProperty('--flo-pos-m', page.positionMobile);
+        bgCell.appendChild(bgImg);
+        hero.appendChild(bgCell);
+      }
+      // Texte posé sur la photo (accueil « une seule page », sans défilement)
+      if (page.textOnImage && page.statement) {
+        var ht = el('div', 'flo-hero-text');
+        page.statement.forEach(function (t) { ht.appendChild(el('p', null, t)); });
+        if (page.textColor) ht.style.color = page.textColor;
+        hero.appendChild(ht);
+        hero.appendChild(el('h1', 'flo-sr-only', page.seoTitle || 'Plurielles \u2014 studio floral \u00e0 Paris'));
+        document.body.classList.add('flo-home', 'flo-home-single');
       }
     } else if (page && page.image && !page.layout) {
       // Page avec bannière photo
@@ -163,6 +177,7 @@
     logo.href = '/';
     // Menu et logo blancs uniquement sur l'accueil, foncés partout ailleurs
     var isLight = !(page && page.fullscreen);
+    if (page && page.menuColor) hero.style.setProperty('--flo-text', page.menuColor);
     if (isLight) {
       hero.classList.add('flo-dark');
       hero.style.setProperty('--flo-text', config.bar.textColor);
@@ -187,6 +202,15 @@
       if (isLight) logo.classList.add('flo-logo-dark'); // sinon : assombrie en CSS
     }
     typo.alt = 'Plurielles';
+    // Logo recoloré (ex. vieux rose sur l'accueil) : l'image sert de masque à une couleur unie
+    if (page && page.logoColor) {
+      logo.classList.add('flo-logo-colored');
+      var tint = el('span', 'flo-logo-tint');
+      tint.style.backgroundColor = page.logoColor;
+      var m = "url('" + (page.logoImage || config.logo.image) + "')";
+      tint.style.webkitMaskImage = m; tint.style.maskImage = m;
+      logo.appendChild(tint);
+    }
     if (config.logo.typoScale) typo.style.width = (config.logo.typoScale * 100) + '%';
     if (config.logo.typoOffset) typo.style.marginTop = config.logo.typoOffset;
     logo.appendChild(typo);
@@ -634,7 +658,7 @@
 
   function buildContent() {
     if (page && page.layout === 'blocks') return buildBlocks();
-    if (page && page.fullscreen) return page.statement ? buildHome() : null;
+    if (page && page.fullscreen) return (page.statement && !page.textOnImage) ? buildHome() : null;
     if (page && page.layout === 'split') return buildSplit();
     if (page && page.layout === 'contact') return buildContact();
     if (!page || !(page.intro || page.prices || page.note)) return null;

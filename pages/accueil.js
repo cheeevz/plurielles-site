@@ -1,40 +1,36 @@
 /*
-  Page d'accueil
-  - deux photos côte à côte en plein écran
-  - menu et logo blancs (seule page dans ce cas), avec « Studio floral » sous le logo
-  - texte de présentation en dessous
+  Page d'accueil — une seule photo plein écran, fixe (pas de défilement),
+  texte blanc posé sur la photo, logo et menu en vieux rose.
+  (Ancienne version à deux photos : historique GitHub de ce fichier.)
 */
 Plurielles.page({
   fullscreen: true,
+  textOnImage: true,              // le texte est posé sur la photo, pas en dessous
 
-  // Référencement : titre principal (invisible) et description des photos pour Google
+  // Référencement : titre principal (invisible) et description de la photo pour Google
   seoTitle: 'Plurielles — studio floral à Paris',
 
   logoSubtitle: 'Studio floral',
   logoSubtitleGap: 'calc(var(--flo-logo-w) * 0.072)',   // écart entre le milieu de « Plurielles » et « Studio floral »
 
-  // ----- Photos (gauche, puis droite) -----
-  // position   : cadrage vertical   (0% = haut, 100% = bas)
-  // positionX  : cadrage horizontal (0% = gauche, 100% = droite)
-  // zoom       : 1 = remplit le cadre ; plus grand = zoome ; plus petit = dézoome
-  // background : couleur visible autour de la photo quand zoom < 1 (prendre celle du mur)
-  images: [
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_6298jj.png', position: '30%', positionX: '50%', zoom: 1.9,
-      alt: 'Composition florale Plurielles, studio floral à Paris' },
-    { url: 'https://studioplurielles.fr/data/files/acceuil/img_4945retouchesokgo.png', position: '50%', positionX: '50%', zoom: 1,
-      alt: 'Création florale du studio Plurielles à Paris' }
-  ],
+  // Couleurs (d'après la maquette)
+  logoColor: '#b58f90',           // logo « Plurielles » en vieux rose
+  menuColor: '#93787b',           // menu et « Studio floral »
+  textColor: '#ffffff',           // texte sur la photo
 
-  // ----- Texte sous les photos -----
-  // Grand texte (gras)
+  // ----- Photo de fond -----
+  // position        : cadrage vertical   (0% = haut, 100% = bas)
+  // positionX       : cadrage horizontal (0% = gauche, 100% = droite)
+  // positionMobile  : cadrage sur téléphone (« horizontal vertical »), le bouquet est à droite
+  image: 'https://studioplurielles.fr/data/files/acceuil/chrysgoodfondecran.png',
+  imageAlt: 'Composition florale de chrysanthèmes et baies orange, Plurielles studio floral à Paris',
+  position: '50%',
+  positionX: '50%',
+  positionMobile: '72% 50%',
+
+  // ----- Texte sur la photo -----
   statement: [
-    "Plurielles est un studio de création florale qui envisage le végétal comme une matière vivante, à observer, transformer et réinventer.",
+    "Plurielles est un studio de création florale basé à Paris, qui envisage le végétal comme une matière vivante, à observer, transformer et réinventer.",
     "Inspirées par les paysages et les arts visuels, nos créations mêlent le végétal à d’autres territoires créatifs, entre compositions florales, scénographie et direction artistique, pour les marques, les événements de la vie et les espaces."
-  ],
-
-  // Petit texte en dessous
-  text: [
-    "Que vous soyez professionnel ou particulier, nous vous proposons un accompagnement complet pour vos besoins floraux.",
-    "Basé à Paris, le studio assure les livraisons dans Paris et sa petite couronne. Nous nous déplaçons également dans d’autres régions pour accompagner vos projets, selon leur nature et leur localisation."
   ]
 });
