@@ -740,23 +740,31 @@
     var tries = 0;
     (function attempt() {
       var site = document.getElementById('website');
-      var img = site && site.querySelector('img');
-      if (!img) { if (tries++ < 40) setTimeout(attempt, 250); return; }
-      for (var a = img; a && a !== site; a = a.parentElement) {
+      var imgs = site ? [].filter.call(site.querySelectorAll('img'), function (im) {
+        return im.offsetParent && !im.closest('.flo-hidden') && im.getBoundingClientRect().width > 80;
+      }) : [];
+      if (imgs.length < 2) { if (tries++ < 40) setTimeout(attempt, 250); return; }
+      // grille de produits = plus petit bloc contenant toutes les photos de produits
+      var grid = imgs[0];
+      while (grid && grid !== site && !imgs.every(function (im) { return grid.contains(im); })) grid = grid.parentElement;
+      // on remonte : la colonne des catégories est un voisin sans photo, placé à DROITE de la grille
+      for (var a = grid; a && a !== site; a = a.parentElement) {
         var p = a.parentElement;
         if (!p) break;
-        var side = null;
-        for (var i = 0; i < p.children.length; i++) {
-          var c = p.children[i];
-          if (c !== a && !c.querySelector('img') && c.querySelector('a, li') && c.textContent.trim()) { side = c; break; }
-        }
-        if (side) {
-          p.classList.add('flo-shop-row');
-          a.classList.add('flo-shop-grid');
-          side.classList.add('flo-shop-cats');
-          return;
+        var ra = a.getBoundingClientRect();
+        for (var k = 0; k < p.children.length; k++) {
+          var c = p.children[k];
+          if (c === a || c.querySelector('img') || !c.textContent.trim()) continue;
+          var rc = c.getBoundingClientRect();
+          if (rc.width && rc.left >= ra.right - 10 && rc.top < ra.bottom && rc.bottom > ra.top) {
+            p.classList.add('flo-shop-row');
+            a.classList.add('flo-shop-grid');
+            c.classList.add('flo-shop-cats');
+            return;
+          }
         }
       }
+      if (tries++ < 40) setTimeout(attempt, 250);
     })();
   }
 
