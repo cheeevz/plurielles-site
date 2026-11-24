@@ -29,6 +29,7 @@ Plurielles.page({
   positionX: '50%',
   positionMobile: '72% 50%',
   zoom: 0.9,                      // < 1 : photo un peu réduite (ordinateur seulement)
+  zoomOrigin: '50% 40%',          // place de la photo réduite : 2e valeur plus petite = photo plus haute (0% = collée en haut, 100% = en bas)
   // couleur autour de la photo réduite : celle du mur, plus claire à gauche, plus chaude à droite
   background: 'linear-gradient(90deg, #e6e8e7 0%, #e0e1df 50%, #d3d1ca 100%)',
 

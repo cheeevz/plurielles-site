@@ -136,6 +136,7 @@
         if (page.zoom && page.zoom !== 1) {
           bgImg.style.transform = 'scale(' + page.zoom + ')';
           bgImg.classList.add('flo-hero-bg-zoomed');
+          if (page.zoomOrigin) bgImg.style.setProperty('--flo-zoom-origin', page.zoomOrigin);
         }
         if (page.background) hero.style.background = page.background;
         bgCell.appendChild(bgImg);

@@ -1487,12 +1487,12 @@ body.flo-home-single .flo-logo-subtitle { color: var(--flo-text); }
 
 /* Accueil : photo réduite (zoom < 1) — ancrée en bas, bords fondus pour se mêler au fond */
 .flo-hero-bg-zoomed {
-  transform-origin: 50% 100%;
+  transform-origin: var(--flo-zoom-origin, 50% 100%);   /* accueil.js > zoomOrigin */
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%),
-                      linear-gradient(to bottom, transparent 0, #000 9%, #000 100%);
+                      linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
   -webkit-mask-composite: source-in;
           mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%),
-                      linear-gradient(to bottom, transparent 0, #000 9%, #000 100%);
+                      linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
           mask-composite: intersect;
 }
 @media (max-width: 860px) {
