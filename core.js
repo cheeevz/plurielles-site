@@ -132,6 +132,12 @@
         var bgImg = photo(page.image, 'flo-hero-bg-pic', page.imageAlt || altOf(page, 0),
           (page.positionX || '50%') + ' ' + (page.position || '50%'), true);
         if (page.positionMobile) bgImg.style.setProperty('--flo-pos-m', page.positionMobile);
+        // zoom < 1 : photo réduite, posée en bas de l'écran, bords fondus dans la couleur du mur
+        if (page.zoom && page.zoom !== 1) {
+          bgImg.style.transform = 'scale(' + page.zoom + ')';
+          bgImg.classList.add('flo-hero-bg-zoomed');
+        }
+        if (page.background) hero.style.background = page.background;
         bgCell.appendChild(bgImg);
         hero.appendChild(bgCell);
       }

@@ -28,6 +28,9 @@ Plurielles.page({
   position: '5%',                 // calé vers le haut pour garder tout le bouquet
   positionX: '50%',
   positionMobile: '72% 50%',
+  zoom: 0.9,                      // < 1 : photo un peu réduite (ordinateur seulement)
+  // couleur autour de la photo réduite : celle du mur, plus claire à gauche, plus chaude à droite
+  background: 'linear-gradient(90deg, #e6e8e7 0%, #e0e1df 50%, #d3d1ca 100%)',
 
   // ----- Texte sur la photo -----
   statement: [
