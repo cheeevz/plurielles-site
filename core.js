@@ -764,12 +764,29 @@
       // pour ne jamais toucher à la barre latérale de l'éditeur.
       //  - désactivable par page avec « keepSiteCreator: true » (ex. la boutique)
       //  - si le formulaire Contact n'a pas été trouvé, on ne masque rien pour ne pas le perdre
-      var editorOpen = !!document.getElementById('koLeftMenu'); // barre latérale de l'éditeur Site Creator
+      // Dans l'éditeur Site Creator, on ne masque jamais rien (pour pouvoir modifier les modules,
+      // ex. préparer la boutique). L'éditeur est repéré par sa barre latérale (#koLeftMenu),
+      // par l'affichage dans un cadre (iframe), ou par une adresse d'édition.
+      function editorOpen() {
+        return inEditor || !!document.getElementById('koLeftMenu') ||
+          /[?&#](edit|editor|preview|admin)/i.test(location.search + location.hash) ||
+          /manager\.infomaniak|sitecreator/i.test(location.hostname);
+      }
       if ((content || (page && page.fullscreen)) && config.siteContent &&
-          !page.keepSiteCreator && !formMissing && !editorOpen) {
+          !page.keepSiteCreator && !formMissing && !editorOpen()) {
         var hideSite = el('style');
         hideSite.textContent = config.siteContent + '{display:none !important;}';
         document.head.appendChild(hideSite);
+        // La barre de l'éditeur peut apparaître après le chargement : on réaffiche alors tout
+        var watch = new MutationObserver(function () {
+          if (document.getElementById('koLeftMenu')) {
+            hideSite.remove();
+            document.documentElement.classList.add('flo-in-editor');
+            watch.disconnect();
+          }
+        });
+        watch.observe(document.body, { childList: true, subtree: true });
+        setTimeout(function () { watch.disconnect(); }, 20000);
       }
     });
 })();
