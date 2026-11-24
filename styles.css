@@ -1469,15 +1469,8 @@ body.flo-home-single .flo-nav a,
 body.flo-home-single .flo-burger,
 body.flo-home-single .flo-logo-subtitle { text-shadow: none !important; }
 body.flo-home-single .flo-logo-subtitle { color: var(--flo-text); }
-/* logo recoloré : l'image reste (taille, texte alternatif) mais invisible, la couleur passe par le masque */
-.flo-logo-colored img { opacity: 0; }
-.flo-logo-tint {
-  position: absolute;
-  inset: 0;
-  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  pointer-events: none;
-}
+/* logo recoloré : filtre posé directement sur l'image (page.logoFilter) */
+.flo-logo-colored img { opacity: 1; }
 @media (max-width: 860px) {
   .flo-hero-bg-pic .flo-ph-img { object-position: var(--flo-pos-m, 50% 50%) !important; }
   .flo-hero.flo-full { height: 100vh; height: 100svh; }

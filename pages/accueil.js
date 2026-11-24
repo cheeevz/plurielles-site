@@ -14,7 +14,8 @@ Plurielles.page({
   logoSubtitleGap: 'calc(var(--flo-logo-w) * 0.072)',   // écart entre le milieu de « Plurielles » et « Studio floral »
 
   // Couleurs (d'après la maquette)
-  logoColor: '#b58f90',           // logo « Plurielles » en vieux rose
+  // logo « Plurielles » en vieux rose #b58f90 (filtre calculé pour teinter le logo blanc)
+  logoFilter: 'brightness(0) saturate(100%) invert(62%) sepia(10%) saturate(698%) hue-rotate(309deg) brightness(95%) contrast(94%)',
   menuColor: '#93787b',           // menu et « Studio floral »
   textColor: '#ffffff',           // texte sur la photo
 
@@ -24,7 +25,7 @@ Plurielles.page({
   // positionMobile  : cadrage sur téléphone (« horizontal vertical »), le bouquet est à droite
   image: 'https://studioplurielles.fr/data/files/acceuil/chrysgoodfondecran.png',
   imageAlt: 'Composition florale de chrysanthèmes et baies orange, Plurielles studio floral à Paris',
-  position: '50%',
+  position: '5%',                 // calé vers le haut pour garder tout le bouquet
   positionX: '50%',
   positionMobile: '72% 50%',
 

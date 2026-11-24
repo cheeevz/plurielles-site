@@ -202,14 +202,10 @@
       if (isLight) logo.classList.add('flo-logo-dark'); // sinon : assombrie en CSS
     }
     typo.alt = 'Plurielles';
-    // Logo recoloré (ex. vieux rose sur l'accueil) : l'image sert de masque à une couleur unie
-    if (page && page.logoColor) {
+    // Logo recoloré (ex. vieux rose sur l'accueil) : filtre CSS appliqué au logo blanc
+    if (page && page.logoFilter) {
       logo.classList.add('flo-logo-colored');
-      var tint = el('span', 'flo-logo-tint');
-      tint.style.backgroundColor = page.logoColor;
-      var m = "url('" + (page.logoImage || config.logo.image) + "')";
-      tint.style.webkitMaskImage = m; tint.style.maskImage = m;
-      logo.appendChild(tint);
+      typo.style.filter = page.logoFilter;
     }
     if (config.logo.typoScale) typo.style.width = (config.logo.typoScale * 100) + '%';
     if (config.logo.typoOffset) typo.style.marginTop = config.logo.typoOffset;
