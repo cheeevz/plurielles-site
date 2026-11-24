@@ -11,6 +11,7 @@ Plurielles.page({
   texture: false,                 // fond blanc uni
   keepSiteCreator: true,          // on garde le contenu Site Creator (le module boutique)
   bodyClass: 'flo-shop',          // active l'habillage de la boutique dans styles.css
+  tidySiteTitle: true,            // remet le titre « SHOP » de Site Creator au style du site
 
   header: {                       // en-tête blanc, menu foncé
     background: '#ffffff',

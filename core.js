@@ -713,6 +713,25 @@
     setTimeout(function () { obs.disconnect(); }, 15000);
   }
 
+  /* ---------- Titre de page Site Creator (ex. boutique) ----------
+     Le titre « SHOP » de Site Creator est posé dans un bandeau (grand espace + filet).
+     On repère ce bandeau (le plus grand bloc autour du titre qui ne contient pas de photo)
+     et on lui ajoute la classe « flo-site-head », remise au style du site dans styles.css. */
+  function tidySiteTitle() {
+    var tries = 0;
+    (function attempt() {
+      var site = document.getElementById('website');
+      var h = site && site.querySelector('h1');
+      if (!h) { if (tries++ < 40) setTimeout(attempt, 250); return; }
+      var band = h;
+      while (band.parentElement && band.parentElement !== site && !band.parentElement.querySelector('img')) {
+        band = band.parentElement;
+      }
+      band.classList.add('flo-site-head');
+      h.classList.add('flo-site-title');
+    })();
+  }
+
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
@@ -765,6 +784,7 @@
       onScroll();
 
       if (page && page.bodyClass) document.body.classList.add(page.bodyClass);
+      if (page && page.tidySiteTitle) tidySiteTitle();
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 

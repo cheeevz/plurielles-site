@@ -1357,3 +1357,47 @@ body.flo-shop #website [class*="footer" i],
 body.flo-shop #website [class*="breadcrumb" i],
 body.flo-shop #website [id*="breadcrumb" i] { display: none !important; }
 body.flo-shop #website h1 { font-size: clamp(18px, 1.55vw, 29px) !important; letter-spacing: 0.103em !important; }
+
+/* Boutique — mise en raccord avec le reste du site */
+body.flo-shop .flo-blocks { display: none; }                 /* bloc vide d'ici */
+body.flo-shop #scrollToTop { display: none !important; }     /* flèche « remonter » de Site Creator */
+/* bandeau du titre : sans grand espace ni filet, titre comme sur les autres pages */
+body.flo-shop .flo-site-head {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border: 0 !important;
+  background: none !important;
+}
+body.flo-shop .flo-site-head * { border: 0 !important; }
+body.flo-shop .flo-site-head > *:not(:has(.flo-site-title)):not(.flo-site-title) { display: none !important; }
+body.flo-shop .flo-site-title {
+  margin: 56px 0 40px !important;
+  padding: 0 !important;
+  font-size: clamp(18px, 1.55vw, 29px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.103em !important;
+  line-height: 1.4 !important;
+}
+/* plus d'ombres ni d'arrondis nulle part dans la boutique */
+body.flo-shop #website * { box-shadow: none !important; text-shadow: none !important; border-radius: 0 !important; }
+/* photos produits : remplissent leur case (plus de bandes grises à gauche et à droite) */
+body.flo-shop #website img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+}
+body.flo-shop #website :has(> img) { background-color: transparent !important; }
+/* noms et prix des produits : plus discrets, comme les titres des prestations */
+body.flo-shop #website h2:not(.flo-site-title),
+body.flo-shop #website h3,
+body.flo-shop #website h4 {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.03em !important;
+}
+/* liste des catégories (« Couronnes ») : simple lien au lieu d'une pastille grise */
+body.flo-shop #website a:not(:has(img)) { background-color: transparent !important; }
+body.flo-shop #website li { background-color: transparent !important; }
