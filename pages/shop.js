@@ -1,20 +1,16 @@
 /*
   Page Shop — adresse : /shop
+  Boutique OUVERTE : titre « SHOP » d'ici, puis le module boutique de Site Creator
+  (produits, panier, paiement), habillé aux couleurs du site (styles.css > « Boutique »).
 
-  EN ATTENDANT L'OUVERTURE : page « bientôt » ci-dessous.
-
-  QUAND LA BOUTIQUE OUVRE : remplacer tout le contenu de Plurielles.page({...}) par
-    layout: 'blocks',
-    texture: false,
-    keepSiteCreator: true,
-    bodyClass: 'flo-shop',
-    header: { background: '#ffffff', textColor: '#1f1f1f' },
-    blocks: [ { type: 'title', text: 'Shop' } ]
-  pour afficher le module boutique de Site Creator, déjà habillé aux couleurs du site.
+  Pour revenir à la page « bientôt » : remettre le contenu de shop-bientot
+  (historique GitHub, version précédente de ce fichier).
 */
 Plurielles.page({
   layout: 'blocks',
-  texture: false,                 // fond blanc uni, sans texture
+  texture: false,                 // fond blanc uni
+  keepSiteCreator: true,          // on garde le contenu Site Creator (le module boutique)
+  bodyClass: 'flo-shop',          // active l'habillage de la boutique dans styles.css
 
   header: {                       // en-tête blanc, menu foncé
     background: '#ffffff',
@@ -22,18 +18,6 @@ Plurielles.page({
   },
 
   blocks: [
-
-    { type: 'title', text: 'Shop' },
-
-    { type: 'text', paragraphs: [
-      "Notre boutique en ligne ouvre bientôt : vases, couronnes de Noël et créations de saison, à commander directement ici.",
-      "En attendant, pour toute commande, écrivez-nous : nous vous répondons sous 24h."
-    ]},
-
-    { type: 'links', items: [
-      { label: 'Nous écrire',                 url: '/contact' },
-      { label: 'hello@studioplurielles.fr',   url: 'mailto:hello@studioplurielles.fr' },
-      { label: 'Instagram @plurielles_studio', url: 'https://www.instagram.com/plurielles_studio/' }
-    ]}
+    { type: 'title', text: 'Shop' }
   ]
 });
