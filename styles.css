@@ -1452,7 +1452,7 @@ body.flo-home-single { overflow: hidden; height: 100vh; height: 100svh; }
 .flo-hero-bg-pic { position: absolute !important; inset: 0; }
 .flo-hero-text {
   position: absolute;
-  left: 21%;                   /* position horizontale du bloc texte */
+  left: 29%;                   /* position horizontale du bloc texte */
   bottom: 9%;                  /* calé par le bas : ne déborde jamais de l'écran */
   width: 23%;                  /* largeur du bloc texte */
   z-index: 2;
