@@ -1354,8 +1354,14 @@ body.flo-shop #website [class*="Product"] { border-radius: 0 !important; box-sha
 body.flo-shop #website footer,
 body.flo-shop #website [id*="footer" i],
 body.flo-shop #website [class*="footer" i],
-body.flo-shop #website [class*="breadcrumb" i],
-body.flo-shop #website [id*="breadcrumb" i] { display: none !important; }
+body.flo-shop:not(.flo-shop-sub) #website [class*="breadcrumb" i],
+body.flo-shop:not(.flo-shop-sub) #website [id*="breadcrumb" i] { display: none !important; }
+/* fiches produit : fil d'Ariane gardé (retour au Shop), discret */
+body.flo-shop-sub #website [class*="breadcrumb" i] { font-size: 12px !important; background: none !important; }
+body.flo-shop-sub #website [class*="breadcrumb" i] a { text-decoration: underline; text-underline-offset: 3px; }
+/* fiche produit : textes de description en Roboto Mono, taille des textes du site */
+body.flo-shop-sub #website p,
+body.flo-shop-sub #website li { font-size: clamp(12px, 0.9vw, 15px) !important; line-height: 1.5 !important; color: #1f1f1f !important; }
 body.flo-shop #website h1 { font-size: clamp(18px, 1.55vw, 29px) !important; letter-spacing: 0.103em !important; }
 
 /* Boutique — mise en raccord avec le reste du site */

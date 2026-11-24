@@ -737,7 +737,24 @@
   loadCss(url('styles.css'));
   loadCss('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Pinyon+Script&display=swap');
 
+  // Pages de la boutique créées par Site Creator (fiche produit, panier, commande…) :
+  // elles n'ont pas de fichier dans pages/, on leur applique celui du Shop.
+  function looksLikeShop() {
+    if (/^\/(shop|boutique|panier|cart|checkout|commande)(\/|$)/i.test(key)) return true;
+    var w = document.getElementById('website') || document.body;
+    return !!w.querySelector('[class*="shop" i], [class*="product" i], [class*="basket" i], [class*="cart" i], [id*="shop" i]');
+  }
+
   Promise.all([loadScript('config.js'), loadScript('pages/' + slug + '.js'), domReady()])
+    .then(function (res) {
+      if (!res[1] && slug !== 'shop' && looksLikeShop()) {
+        return loadScript('pages/shop.js').then(function (ok) {
+          if (ok && page) page = Object.assign({}, page, { shopSubpage: true });
+          return res;
+        });
+      }
+      return res;
+    })
     .then(function (res) {
       if (!res[0] || !config) {
         console.error('[Plurielles] config.js introuvable ou invalide');
@@ -784,7 +801,8 @@
       onScroll();
 
       if (page && page.bodyClass) document.body.classList.add(page.bodyClass);
-      if (page && page.tidySiteTitle) tidySiteTitle();
+      if (page && page.shopSubpage) document.body.classList.add('flo-shop-sub');
+      if (page && page.tidySiteTitle && !page.shopSubpage) tidySiteTitle();
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 
