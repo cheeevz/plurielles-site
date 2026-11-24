@@ -12,6 +12,7 @@ Plurielles.page({
   keepSiteCreator: true,          // on garde le contenu Site Creator (le module boutique)
   bodyClass: 'flo-shop',          // active l'habillage de la boutique dans styles.css
   tidySiteTitle: true,            // remet le titre « SHOP » de Site Creator au style du site
+  shopCategoriesOnTop: true,      // liste des catégories (« Couronnes ») au-dessus des photos, à gauche
 
   header: {                       // en-tête blanc, menu foncé
     background: '#ffffff',

@@ -1407,3 +1407,29 @@ body.flo-shop #website h4 {
 /* liste des catégories (« Couronnes ») : simple lien au lieu d'une pastille grise */
 body.flo-shop #website a:not(:has(img)) { background-color: transparent !important; }
 body.flo-shop #website li { background-color: transparent !important; }
+
+/* Boutique : catégories au-dessus des produits, à gauche (repérées par core.js) */
+body.flo-shop .flo-shop-row { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; }
+body.flo-shop .flo-shop-cats {
+  order: -1;
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+  float: none !important;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  background: none !important;
+}
+body.flo-shop .flo-shop-grid { width: 100% !important; max-width: none !important; flex: none !important; float: none !important; }
+body.flo-shop .flo-shop-cats ul { display: flex !important; flex-wrap: wrap; gap: 8px 28px; margin: 0 !important; padding: 0 !important; list-style: none; }
+body.flo-shop .flo-shop-cats li,
+body.flo-shop .flo-shop-cats a { display: inline-block; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; }
+body.flo-shop .flo-shop-cats a,
+body.flo-shop .flo-shop-cats li {
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: #1f1f1f !important;
+  text-decoration: none;
+}
+body.flo-shop .flo-shop-cats a:hover { text-decoration: underline; text-underline-offset: 4px; }

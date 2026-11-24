@@ -732,6 +732,34 @@
     })();
   }
 
+  /* ---------- Boutique : catégories au-dessus des produits ----------
+     Site Creator range la liste des catégories (« Couronnes ») dans une colonne à droite.
+     On repère cette colonne (voisine de la grille de photos, sans photo, avec des liens)
+     et on la remonte au-dessus des produits, alignée à gauche (styles dans styles.css). */
+  function shopCategoriesOnTop() {
+    var tries = 0;
+    (function attempt() {
+      var site = document.getElementById('website');
+      var img = site && site.querySelector('img');
+      if (!img) { if (tries++ < 40) setTimeout(attempt, 250); return; }
+      for (var a = img; a && a !== site; a = a.parentElement) {
+        var p = a.parentElement;
+        if (!p) break;
+        var side = null;
+        for (var i = 0; i < p.children.length; i++) {
+          var c = p.children[i];
+          if (c !== a && !c.querySelector('img') && c.querySelector('a, li') && c.textContent.trim()) { side = c; break; }
+        }
+        if (side) {
+          p.classList.add('flo-shop-row');
+          a.classList.add('flo-shop-grid');
+          side.classList.add('flo-shop-cats');
+          return;
+        }
+      }
+    })();
+  }
+
   /* ---------- Lancement ---------- */
 
   loadCss(url('styles.css'));
@@ -803,6 +831,7 @@
       if (page && page.bodyClass) document.body.classList.add(page.bodyClass);
       if (page && page.shopSubpage) document.body.classList.add('flo-shop-sub');
       if (page && page.tidySiteTitle && !page.shopSubpage) tidySiteTitle();
+      if (page && page.shopCategoriesOnTop) shopCategoriesOnTop();
       var content = buildContent();
       if (content) hero.parentNode.insertBefore(content, hero.nextSibling);
 
