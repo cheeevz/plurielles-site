@@ -19,6 +19,16 @@
 (function () {
   if (window.Plurielles) return; // déjà chargé
 
+  // Interrupteur : ouvrir une page du site avec « ?flo=off » désactive tout le script
+  // dans ce navigateur (le site Site Creator s'affiche brut, éditeur compris) ;
+  // « ?flo=on » le réactive.
+  try {
+    var q = location.search;
+    if (/[?&]flo=off/.test(q)) localStorage.setItem('flo-off', '1');
+    if (/[?&]flo=on/.test(q)) localStorage.removeItem('flo-off');
+    if (localStorage.getItem('flo-off')) { console.info('[Plurielles] script désactivé (?flo=on pour réactiver)'); return; }
+  } catch (e) {}
+
   // Dossier du repo + version (reprise de l'URL de core.js pour éviter le cache)
   var me = document.currentScript;
   var src = me ? me.src : '';
