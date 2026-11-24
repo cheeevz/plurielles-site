@@ -1434,3 +1434,6 @@ body.flo-shop .flo-shop-cats li {
 }
 body.flo-shop .flo-shop-cats a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .flo-hidden { display: none !important; }
+/* Boutique : liste des catégories masquée pour l'instant (la grille garde toute la largeur).
+   Pour la réafficher au-dessus des photos : supprimer cette ligne. */
+body.flo-shop .flo-shop-cats { display: none !important; }
